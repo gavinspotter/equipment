@@ -11,3 +11,5 @@ const userSchema = new Schema({
     equipment: [{ type: mongoose.Types.ObjectId, required: true }],
     employees: [{ type: mongoose.Types.ObjectId, required: true }],
 })
+
+userSchema.plugin(uniqueValidator)
