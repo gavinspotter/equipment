@@ -13,3 +13,5 @@ const companySchema = new Schema({
 })
 
 companySchema.plugin(uniqueValidator)
+
+module.exports = mongoose.model("Company", companySchema)
