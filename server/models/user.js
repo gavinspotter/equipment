@@ -9,7 +9,6 @@ const userSchema = new Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true, minlength: 6 },
     equipment: [{ type: mongoose.Types.ObjectId, required: true }],
-    employees: [{ type: mongoose.Types.ObjectId, required: true }],
 })
 
 userSchema.plugin(uniqueValidator)
