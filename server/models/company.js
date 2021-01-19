@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const uniqueValidator = require("mongoose")
+const uniqueValidator = require("mongoose-unique-validator")
 
 const Schema = mongoose.Schema
 
@@ -11,3 +11,5 @@ const companySchema = new Schema({
     equipment: [{ type: mongoose.Types.ObjectId, required: true }],
     employees: [{ type: mongoose.Types.ObjectId, required: true }]
 })
+
+companySchema.plugin(uniqueValidator)
