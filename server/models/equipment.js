@@ -10,3 +10,5 @@ const equipmentSchema = new Schema({
     [{ type: mongoose.Types.ObjectId, required: true }]
     ]
 })
+
+module.exports = mongoose.model("Equipment", equipmentSchema)
