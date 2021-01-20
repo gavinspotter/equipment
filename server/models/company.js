@@ -12,7 +12,7 @@ const companySchema = new Schema({
         { type: mongoose.Types.ObjectId, required: true },
         [{ type: mongoose.Types.ObjectId, required: true }]
     ],
-    employees: [{ type: mongoose.Types.ObjectId, required: true }]
+    employees: [{ type: mongoose.Types.ObjectId, required: true, ref: "User" }]
 })
 
 companySchema.plugin(uniqueValidator)
