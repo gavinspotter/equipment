@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 
 const equipmentSchema = new Schema({
     name: { type: String, required: true },
-    company: { type: mongoose.Types.ObjectId, required: true },
+    company: { type: mongoose.Types.ObjectId, required: true, ref: "Company" },
     ehistory: [{ type: Date, required: true },
     [{ type: mongoose.Types.ObjectId, required: true, ref: "User" }]
     ]
