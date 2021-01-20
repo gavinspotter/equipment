@@ -43,4 +43,5 @@ const login = async (req, res, next) => {
     let existingUser
 }
 
+exports.login = login;
 exports.signup = signup
