@@ -9,7 +9,11 @@ const companySchema = new Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     equipment: [{ type: mongoose.Types.ObjectId, required: true, ref: "Equipment" }],
-    employees: [{ type: mongoose.Types.ObjectId, required: true, ref: "User" }]
+    employees: [{ type: mongoose.Types.ObjectId, required: true, ref: "User" }],
+    ehistory: [{ type: Date, required: true },
+    [{ type: mongoose.Types.ObjectId, required: true, ref: "Equipment" }]
+    [{ type: mongoose.Types.ObjectId, required: true, ref: "User" }]
+    ]
 })
 
 companySchema.plugin(uniqueValidator)
