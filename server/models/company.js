@@ -8,10 +8,7 @@ const companySchema = new Schema({
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    equipment: [
-        { type: mongoose.Types.ObjectId, required: true },
-        [{ type: mongoose.Types.ObjectId, required: true }]
-    ],
+    equipment: [{ type: mongoose.Types.ObjectId, required: true, ref: "Equipment" }],
     employees: [{ type: mongoose.Types.ObjectId, required: true, ref: "User" }]
 })
 
