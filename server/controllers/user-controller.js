@@ -37,4 +37,8 @@ const signup = async (req, res, next) => {
     res.status(201).json({ user: createdUser.toObject({ getters: true }) })
 }
 
+const login = async (req, res, next) => {
+
+}
+
 exports.signup = signup
