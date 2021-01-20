@@ -15,6 +15,13 @@ const signup = async (req, res, next) => {
         )
         return next(error)
     }
+
+    const createdUser = new User({
+        name,
+        email,
+        password,
+
+    })
 }
 
 exports.signup = signup
