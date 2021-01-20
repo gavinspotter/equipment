@@ -8,7 +8,7 @@ const app = express()
 
 app.use(bodyParser.json())
 
-
+app.use("/api/user")
 
 
 app.use((req, res, next) => {
