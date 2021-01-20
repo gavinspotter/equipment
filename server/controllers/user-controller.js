@@ -41,6 +41,16 @@ const login = async (req, res, next) => {
     const { email, password } = req.body
 
     let existingUser
+
+    try {
+        existingUser = await User.findOne({ email: email })
+    } catch (err) {
+        const error = new HttpError(
+            "login failed",
+            500
+        )
+        return next(error)
+    }
 }
 
 exports.login = login;
