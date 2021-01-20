@@ -23,6 +23,17 @@ const signup = async (req, res, next) => {
         company: [],
         equipment: []
     })
+
+    try {
+        await createdUser.save()
+    } catch (err) {
+        const error = new HttpError(
+            "couldnt save this action",
+            500
+        )
+        return next(error)
+    }
+
 }
 
 exports.signup = signup
