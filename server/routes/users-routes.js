@@ -4,7 +4,7 @@ const usersController = require("../controllers/user-controller")
 
 const router = express.Router()
 
-router.post("/signup")
+router.post("/signup", usersController.signup)
 
 router.post("/login")
 
