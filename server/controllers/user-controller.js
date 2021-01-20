@@ -51,6 +51,14 @@ const login = async (req, res, next) => {
         )
         return next(error)
     }
+
+    if (!existingUser || existingUser.password !== password) {
+        const error = new HttpError(
+            "wrong information",
+            401
+        )
+        return next(error)
+    }
 }
 
 exports.login = login;
