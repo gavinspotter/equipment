@@ -5,3 +5,5 @@ const equipmentController = require("../controllers/equipment-controller")
 const router = express.Router();
 
 router.post("/")
+
+module.exports = router
