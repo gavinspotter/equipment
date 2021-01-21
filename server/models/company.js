@@ -12,7 +12,8 @@ const companySchema = new Schema({
     employees: [{ type: mongoose.Types.ObjectId, required: true, ref: "User" }],
     ehistory: [{ type: Date, required: true },
     [{ type: mongoose.Types.ObjectId, required: true, ref: "Equipment" }]
-    [{ type: mongoose.Types.ObjectId, required: true, ref: "User" }]
+    [{ type: mongoose.Types.ObjectId, required: true, ref: "User" }],
+    { type: Date, required: true }
     ]
 })
 
