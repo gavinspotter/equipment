@@ -128,6 +128,13 @@ const login = async (req, res, next) => {
         );
         return next(error);
     }
+
+    res.json({
+        userId: existingUser.id,
+        username: existingUser.username,
+        token: token
+    })
+
 }
 
 
