@@ -73,7 +73,9 @@ const signup = async (req, res, next) => {
 
 }
 
-const login = async (req, res, next) => { }
+const login = async (req, res, next) => {
+    const { username, password } = req.body
+}
 
 
 exports.login = login
