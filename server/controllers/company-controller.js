@@ -4,3 +4,4 @@ const Company = require("../models/company")
 
 
 const bcrypt = require("bcryptjs")
+const jwt = require("jsonwebtoken")
