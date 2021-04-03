@@ -12,6 +12,13 @@ const signup = async (req, res, next) => {
 
     let existingUser
 
+    try {
+        existingUser = await Company.findOne({ username: username })
+    } catch (err) {
+        const error = new HttpError("couldnt find email", 500)
+        return next(error)
+    }
+
 }
 
 exports.signup = signup
