@@ -104,6 +104,14 @@ const login = async (req, res, next) => {
         );
         return next(error);
     }
+
+    if (!isValidPassword) {
+        const error = new HttpError(
+            'Invalid credentials, could not log you in.',
+            403
+        );
+        return next(error);
+    }
 }
 
 
