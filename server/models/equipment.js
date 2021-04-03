@@ -17,3 +17,6 @@ const equipmentSchema = new Schema({
 
 const equipmentHistoryOID = mongoose.model("Ehistory", equipmentHistorySchema)
 const equipmentOID = mongoose.model("Equipment", equipmentSchema)
+
+
+module.exports = equipmentOID && equipmentHistoryOID
