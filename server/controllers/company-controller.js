@@ -68,6 +68,9 @@ const signup = async (req, res, next) => {
         return next(error);
     }
 
+    res.status(201).json({ userId: createdCompany.id, username: createdCompany.username, token: token })
+
+
 }
 
 exports.signup = signup
