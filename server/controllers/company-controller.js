@@ -24,6 +24,10 @@ const signup = async (req, res, next) => {
         return next(error)
     }
 
+
+    let hashedPassword;
+
+
 }
 
 exports.signup = signup
