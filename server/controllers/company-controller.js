@@ -44,6 +44,14 @@ const signup = async (req, res, next) => {
         equipment: []
     })
 
+    try {
+        await createdCompany.save()
+    } catch (err) {
+        const error = new HttpError("couldnt save to database", 500)
+        return next(error)
+
+    }
+
 }
 
 exports.signup = signup
