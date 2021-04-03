@@ -56,7 +56,7 @@ const signup = async (req, res, next) => {
 
     try {
         token = jwt.sign(
-            { userId: createdUser.id, email: createdUser.email },
+            { userId: createdCompany.id, username: createdCompany.username },
             'supersecret_dont_share',
             { expiresIn: '1h' }
         );
