@@ -77,6 +77,13 @@ const login = async (req, res, next) => {
     const { username, password } = req.body
 
     let existingUser
+
+    try {
+        existingUser = await Company.findOne({ username })
+    } catch (err) {
+        const error = new HttpError("couldnt find company username", 500)
+        return next(error)
+    }
 }
 
 
