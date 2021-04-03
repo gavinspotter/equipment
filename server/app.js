@@ -3,6 +3,7 @@ const bodyParser = require("body-parser")
 const mongoose = require("mongoose")
 
 const userRoutes = require("./routes/users-routes")
+const companyRoutes = require("./routes/company-routes")
 
 
 const HttpError = require("./models/HttpError")
@@ -10,6 +11,8 @@ const HttpError = require("./models/HttpError")
 const app = express()
 
 app.use(bodyParser.json())
+
+app.use("/api/company", companyRoutes)
 
 app.use("/api/user", userRoutes)
 
