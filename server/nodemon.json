@@ -2,6 +2,6 @@
     "env": {
         "DB_USER": "gavin",
         "DB_PASSWORD": "Password123",
-        "DB_NAME": "messenger"
+        "DB_NAME": "equipment"
     }
 }
