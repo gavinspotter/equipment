@@ -37,6 +37,13 @@ const signup = async (req, res, next) => {
         return next(error);
     }
 
+    const createdCompany = new Company({
+        username,
+        password,
+        users: [],
+        equipment: []
+    })
+
 }
 
 exports.signup = signup
