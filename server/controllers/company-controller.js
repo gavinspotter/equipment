@@ -52,6 +52,9 @@ const signup = async (req, res, next) => {
 
     }
 
+    let token;
+
+
 }
 
 exports.signup = signup
