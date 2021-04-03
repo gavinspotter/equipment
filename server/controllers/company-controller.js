@@ -84,6 +84,14 @@ const login = async (req, res, next) => {
         const error = new HttpError("couldnt find company username", 500)
         return next(error)
     }
+
+    if (!existingUser) {
+        const error = new HttpError(
+            "this isnt a user",
+            401
+        )
+        return next(error)
+    }
 }
 
 
