@@ -9,4 +9,8 @@ router.post("/signup", companyController.signup)
 
 router.post("/login", companyController.login)
 
+
+
+
+
 module.exports = router
