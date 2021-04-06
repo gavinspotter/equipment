@@ -179,6 +179,14 @@ const createEquipment = async (req, res, next) => {
     }
 
 
+    try {
+        await company.save()
+    } catch (err) {
+        const error = new HttpError("couldnt save equipment to company", 500)
+        return next(error)
+    }
+
+    res.status(201).json({ equipment: createdEquipment })
 
 
 
