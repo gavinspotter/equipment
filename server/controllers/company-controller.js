@@ -203,7 +203,7 @@ const addUserToCompany = async (req, res, next) => {
     let findEmail
 
     try {
-        findEmail = await User.find({ email: email })
+        findEmail = await User.findOne({ email: email })
     } catch (err) {
         const error = new HttpError("couldnt find user by email", 500)
         return next(error)
@@ -219,15 +219,17 @@ const addUserToCompany = async (req, res, next) => {
     }
 
     try {
-        snatchCompany.users.push(findEmail)
+        snatchCompany.employees.push(findEmail)
     } catch (err) {
-
+        const error = new HttpError("couldnt add employee", 500)
+        return next(error)
     }
 
     try {
-        snatchCompany.save()
+        await snatchCompany.save()
     } catch (err) {
-
+        const error = new HttpError("couldnt save", 500)
+        return next(error)
     }
 
     res.json({ company: snatchCompany.users })
