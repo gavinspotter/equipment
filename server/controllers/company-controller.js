@@ -146,7 +146,8 @@ const createEquipment = async (req, res, next) => {
     const createdEquipment = new Equipment(
         {
             name: name,
-            company: req.userData.userId
+            company: req.userData.userId,
+
         }
     )
 
