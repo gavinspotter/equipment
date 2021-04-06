@@ -13,6 +13,8 @@ router.post("/signup", companyController.signup)
 router.post("/login", companyController.login)
 
 
+router.use(checkAuth);
+
 
 
 
