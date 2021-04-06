@@ -39,7 +39,7 @@ const signup = async (req, res, next) => {
 
     const createdCompany = new Company({
         username,
-        password,
+        password: hashedPassword,
         users: [],
         equipment: []
     })
@@ -79,7 +79,7 @@ const login = async (req, res, next) => {
     let existingUser
 
     try {
-        existingUser = await Company.findOne({ username })
+        existingUser = await Company.findOne({ username: username })
     } catch (err) {
         const error = new HttpError("couldnt find company username", 500)
         return next(error)
