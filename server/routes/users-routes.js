@@ -8,5 +8,7 @@ router.post("/signup", usersController.signup)
 
 router.post("/login", usersController.login)
 
+router.post("/takeEquipment", usersController.takeEquipment)
+
 module.exports = router
 
