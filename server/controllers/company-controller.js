@@ -150,6 +150,12 @@ const createEquipment = async (req, res, next) => {
         }
     )
 
+    let company
+
+
+
+
+
 
 }
 
