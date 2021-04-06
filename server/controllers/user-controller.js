@@ -1,6 +1,10 @@
 const HttpError = require("../models/HttpError")
 const User = require("../models/user")
 
+const bcrypt = require("bcryptjs")
+const jwt = require("jsonwebtoken")
+
+
 const signup = async (req, res, next) => {
     const { name, email, password } = req.body
 
@@ -19,6 +23,18 @@ const signup = async (req, res, next) => {
     if (existingUser) {
         const error = new HttpError("this user already exists, please login", 422)
         return next(error)
+    }
+
+    let hashedPassword;
+
+    try {
+        hashedPassword = await bcrypt.hash(password, 12);
+    } catch (err) {
+        const error = new HttpError(
+            'Could not create user, please try again.',
+            500
+        );
+        return next(error);
     }
 
     const createdUser = new User({
