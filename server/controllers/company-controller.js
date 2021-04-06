@@ -152,6 +152,12 @@ const createEquipment = async (req, res, next) => {
 
     let company
 
+    try {
+        company = await Company.findById(req.userData.userId)
+    } catch (err) {
+        const error = new HttpError("couldnt find company by id", 500)
+        return next(error)
+    }
 
 
 
