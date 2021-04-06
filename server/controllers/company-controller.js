@@ -141,6 +141,8 @@ const login = async (req, res, next) => {
 
 const createEquipment = async (req, res, next) => {
 
+    const { name, company } = req.body
+
 
 }
 
