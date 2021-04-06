@@ -218,6 +218,17 @@ const addUserToCompany = async (req, res, next) => {
         return next(error)
     }
 
+    try {
+        snatchCompany.users.push(findEmail)
+    } catch (err) {
+
+    }
+
+    try {
+        snatchCompany.save()
+    } catch (err) {
+
+    }
 
 }
 
