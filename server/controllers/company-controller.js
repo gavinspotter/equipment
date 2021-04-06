@@ -141,7 +141,14 @@ const login = async (req, res, next) => {
 
 const createEquipment = async (req, res, next) => {
 
-    const { name, company } = req.body
+    const { name } = req.body
+
+    const createdEquipment = new Equipment(
+        {
+            name: name,
+            company: req.userData.userId
+        }
+    )
 
 
 }
