@@ -3,7 +3,10 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
 const equipmentHistorySchema = new Schema({
-    dateOfUse: { type: String, required: true },
+    dateOfUse: {
+        in: { type: String, required: true },
+        out: { type: String }
+    },
     users: [{ type: mongoose.Types.ObjectId, required: true, ref: "User" }],
     jobDescription: { type: String, required: true }
 })
