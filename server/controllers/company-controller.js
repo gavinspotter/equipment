@@ -2,6 +2,8 @@ const HttpError = require("../models/HttpError")
 
 const Company = require("../models/company")
 
+const Equipment = require('../models/equipment')
+
 
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
@@ -138,6 +140,7 @@ const login = async (req, res, next) => {
 }
 
 const createEquipment = async (req, res, next) => {
+
 
 }
 
