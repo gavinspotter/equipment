@@ -192,7 +192,12 @@ const createEquipment = async (req, res, next) => {
 
 }
 
+
+
 const addUserToCompany = async (req, res, next) => {
+
+    const { email } = req.body
+
 
 }
 
