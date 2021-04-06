@@ -4,6 +4,8 @@ const Company = require("../models/company")
 
 const Equipment = require('../models/equipment')
 
+const User = require('../models/user')
+
 
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
@@ -199,6 +201,8 @@ const addUserToCompany = async (req, res, next) => {
     const { email } = req.body
 
     let findEmail
+
+
 
 }
 
