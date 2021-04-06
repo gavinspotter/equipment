@@ -209,6 +209,15 @@ const addUserToCompany = async (req, res, next) => {
         return next(error)
     }
 
+    let snatchCompany
+
+    try {
+        snatchCompany = await Company.findById(req.userData.userId)
+    } catch (err) {
+        const error = new HttpError("could find company by id", 500)
+        return next(error)
+    }
+
 
 }
 
