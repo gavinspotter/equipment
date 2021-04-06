@@ -230,6 +230,7 @@ const addUserToCompany = async (req, res, next) => {
 
     }
 
+    res.json({ company: snatchCompany.users })
 }
 
 
