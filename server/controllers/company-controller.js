@@ -159,6 +159,11 @@ const createEquipment = async (req, res, next) => {
         return next(error)
     }
 
+    if (!company) {
+        const error = new HttpError("couldnt find a company for that id", 404)
+        return next(error)
+    }
+
 
 
 
