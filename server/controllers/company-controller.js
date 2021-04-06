@@ -4,7 +4,7 @@ const Company = require("../models/company")
 
 const Equipment = require('../models/equipment')
 
-const User = require('../models/user')
+const Employee = require('../models/user')
 
 
 const bcrypt = require("bcryptjs")
@@ -203,7 +203,7 @@ const addUserToCompany = async (req, res, next) => {
     let findEmail
 
     try {
-        findEmail = await User.findOne({ email: email })
+        findEmail = await Employee.findOne({ email: email })
     } catch (err) {
         const error = new HttpError("couldnt find user by email", 500)
         return next(error)
@@ -215,6 +215,13 @@ const addUserToCompany = async (req, res, next) => {
         snatchCompany = await Company.findById(req.userData.userId)
     } catch (err) {
         const error = new HttpError("could find company by id", 500)
+        return next(error)
+    }
+
+    const ace = snatchCompany.employees.find(x => x == findEmail.id)
+
+    if (ace) {
+        const error = new HttpError("this is already an employee of your company", 500)
         return next(error)
     }
 
@@ -232,7 +239,7 @@ const addUserToCompany = async (req, res, next) => {
         return next(error)
     }
 
-    res.json({ company: snatchCompany.users })
+    res.json({ company: snatchCompany.employees })
 }
 
 
