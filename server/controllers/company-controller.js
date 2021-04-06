@@ -202,6 +202,12 @@ const addUserToCompany = async (req, res, next) => {
 
     let findEmail
 
+    try {
+        findEmail = await User.find({ email: email })
+    } catch (err) {
+        const error = new HttpError("couldnt find user by email", 500)
+        return next(error)
+    }
 
 
 }
