@@ -1,6 +1,9 @@
 const HttpError = require("../models/HttpError")
 const User = require("../models/user")
 
+const Company = require("../models/company")
+const Equipment = require("../models/equipment")
+
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 
