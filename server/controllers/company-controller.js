@@ -197,6 +197,8 @@ const addUserToCompany = async (req, res, next) => {
 }
 
 
+
+exports.addUserToCompany = addUserToCompany
 exports.createEquipment = createEquipment
 exports.login = login
 exports.signup = signup
