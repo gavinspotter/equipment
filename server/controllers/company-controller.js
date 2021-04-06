@@ -119,7 +119,7 @@ const login = async (req, res, next) => {
 
     try {
         token = jwt.sign(
-            { userId: existingUser.id, email: existingUser.email },
+            { userId: existingUser.id, username: existingUser.username },
             'supersecret_dont_share',
             { expiresIn: '1h' }
         );
