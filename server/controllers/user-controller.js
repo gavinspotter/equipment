@@ -146,6 +146,11 @@ const login = async (req, res, next) => {
 }
 
 
+const takeEquipment = async (req, res, next) => {
 
+}
+
+
+exports.takeEquipment = takeEquipment
 exports.login = login;
 exports.signup = signup
