@@ -15,6 +15,7 @@ router.post("/login", companyController.login)
 
 router.use(checkAuth);
 
+router.post("/equipment", companyController.createEquipment)
 
 
 
