@@ -198,6 +198,7 @@ const addUserToCompany = async (req, res, next) => {
 
     const { email } = req.body
 
+    let findEmail
 
 }
 
