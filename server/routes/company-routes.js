@@ -17,6 +17,7 @@ router.use(checkAuth);
 
 router.post("/equipment", companyController.createEquipment)
 
+router.post("/addUser", companyController.addUserToCompany)
 
 
 module.exports = router
