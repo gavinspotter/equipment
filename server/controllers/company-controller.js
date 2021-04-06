@@ -190,8 +190,9 @@ const createEquipment = async (req, res, next) => {
     res.status(201).json({ equipment: createdEquipment })
 
 
+}
 
-
+const addUserToCompany = async (req, res, next) => {
 
 }
 
