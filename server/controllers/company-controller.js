@@ -171,6 +171,15 @@ const createEquipment = async (req, res, next) => {
         return next(error)
     }
 
+    try {
+        company.equipment.push(createdEquipment)
+    } catch (err) {
+        const error = new HttpError("couldnt add equipment to company", 500)
+        return next(error)
+    }
+
+
+
 
 
 
