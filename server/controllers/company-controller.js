@@ -167,8 +167,8 @@ const createEquipment = async (req, res, next) => {
     try {
         await createdEquipment.save()
     } catch (err) {
-        const error = new HttpError("couldnt save equipment", 500)
-        return next(error)
+        // const error = new HttpError("couldnt save equipment", 500)
+        // return next(error)
     }
 
     try {
