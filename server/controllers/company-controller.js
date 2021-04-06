@@ -142,5 +142,6 @@ const createEquipment = async (req, res, next) => {
 }
 
 
+exports.createEquipment = createEquipment
 exports.login = login
 exports.signup = signup
