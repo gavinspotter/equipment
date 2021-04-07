@@ -168,8 +168,11 @@ const takeEquipment = async (req, res, next) => {
         dateOfUse: {
             in: timein
         },
+        users: [req.userData.userId],
         jobDescription: jobdescription
     }
+
+
 
 }
 
