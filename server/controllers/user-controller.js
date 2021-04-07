@@ -156,6 +156,12 @@ const takeEquipment = async (req, res, next) => {
         findCompany = await User.find({ company: company })
     } catch (err) {
         const error = new HttpError("couldnt find the company", 500)
+        return next(error)
+    }
+
+    if (!findCompany) {
+        const error = new HttpError("youre not apart of that company", 500)
+        return next(error)
     }
 
 }
