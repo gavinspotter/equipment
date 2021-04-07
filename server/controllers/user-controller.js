@@ -148,7 +148,7 @@ const login = async (req, res, next) => {
 
 const takeEquipment = async (req, res, next) => {
 
-
+    const { timein, jobdescription } = req.body
 
 }
 
