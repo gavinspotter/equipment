@@ -164,6 +164,13 @@ const takeEquipment = async (req, res, next) => {
         return next(error)
     }
 
+    const ehistory = {
+        dateOfUse: {
+            in: timein
+        },
+        jobDescription: jobdescription
+    }
+
 }
 
 
