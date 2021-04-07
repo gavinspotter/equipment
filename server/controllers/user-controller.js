@@ -148,7 +148,15 @@ const login = async (req, res, next) => {
 
 const takeEquipment = async (req, res, next) => {
 
-    const { timein, jobdescription } = req.body
+    const { timein, jobdescription, company } = req.body
+
+
+    let findCompany
+    try {
+        findCompany = await User.find({ company: company })
+    } catch (err) {
+        const error = new HttpError("couldnt find the company", 500)
+    }
 
 }
 
