@@ -178,6 +178,7 @@ const takeEquipment = async (req, res, next) => {
 
 
 
+
 }
 
 
