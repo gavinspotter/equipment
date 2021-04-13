@@ -179,6 +179,17 @@ const takeEquipment = async (req, res, next) => {
     let checkIfEquipmentIsOut
 
 
+    try {
+        checkIfEquipmentIsOut = await User.find({ equipment: findEquipment.id })
+    } catch (err) {
+        const error = new HttpError("couldnt find equipment in user")
+        return next(error)
+    }
+
+    if (checkIfEquipmentIsOut) {
+        const error = new HttpError("that equipment is out")
+        return next(error)
+    }
 
 
     const ehistory = {
@@ -222,7 +233,12 @@ const takeEquipment = async (req, res, next) => {
 
 }
 
+const addUserToEquipment = async (req, res, next) => {
 
+}
+
+
+exports.addUserToEquipment = addUserToEquipment
 exports.takeEquipment = takeEquipment
 exports.login = login;
 exports.signup = signup
