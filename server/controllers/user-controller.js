@@ -207,26 +207,14 @@ const takeEquipment = async (req, res, next) => {
         return next(error)
     }
 
+    try {
+        await findUser.save()
+    } catch (err) {
+        const error = new HttpError("save failed")
+        return next(error)
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    res.json({ userEquipment: findUser.equipment, equipmentTime: findEquipment.eHistory })
 
 
 }
