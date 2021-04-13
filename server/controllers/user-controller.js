@@ -193,6 +193,14 @@ const takeEquipment = async (req, res, next) => {
         return next(error)
     }
 
+    try {
+        await findEquipment.save()
+    } catch (err) {
+        const error = new HttpError("save")
+        return next(error)
+    }
+
+
 
 
 
