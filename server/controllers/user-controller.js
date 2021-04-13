@@ -268,6 +268,13 @@ const addUserToEquipment = async (req, res, next) => {
 
     const findEhistory = findEquipment.eHistory.find(x => x.id == ehistory)
 
+    const checkUser = findEhistory.users.find(x => x == findUser.id)
+
+    if (checkUser) {
+        const error = new HttpError("you already have that equipment out")
+        return next(error)
+    }
+
     try {
         findEhistory.users.push(findUser.id)
     } catch (err) {
@@ -282,12 +289,7 @@ const addUserToEquipment = async (req, res, next) => {
         return next(error)
     }
 
-    const checkUser = findEhistory.users.filter(x => x.id == findUser)
 
-    if (checkUser) {
-        const error = new HttpError("you already have that equipment out")
-        return next(error)
-    }
 
 
     res.json({ history: findEhistory })
