@@ -162,6 +162,13 @@ const takeEquipment = async (req, res, next) => {
 
     let findUser
 
+    try {
+        findUser = User.findById(req.userData.userId)
+    } catch (err) {
+        const error = new HttpError("youre not logged in", 500)
+        return next(error)
+    }
+
 
 
 
