@@ -169,6 +169,12 @@ const takeEquipment = async (req, res, next) => {
         return next(error)
     }
 
+    const findCompanyId = findUser.company.find(x => x._id == findEquipment.company)
+
+    if (!findCompanyId) {
+        const error = new HttpError("user doesnt have access to that equipment")
+        return next(error)
+    }
 
 
 
@@ -179,6 +185,15 @@ const takeEquipment = async (req, res, next) => {
         users: [req.userData.userId],
         jobDescription: jobdescription
     }
+
+    try {
+        findEquipment.eHistory.push(ehistory)
+    } catch (err) {
+        const error = new HttpError("couldnt add time")
+        return next(error)
+    }
+
+
 
 
 
