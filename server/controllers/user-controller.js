@@ -154,7 +154,7 @@ const takeEquipment = async (req, res, next) => {
     let findEquipment
 
     try {
-        findEquipment = Equipment.findById(equipment)
+        findEquipment = await Equipment.findById(equipment)
     } catch (err) {
         const error = new HttpError("couldnt find equpiment", 500)
         return next(error)
@@ -163,13 +163,13 @@ const takeEquipment = async (req, res, next) => {
     let findUser
 
     try {
-        findUser = User.findById(req.userData.userId)
+        findUser = await User.findById(req.userData.userId)
     } catch (err) {
         const error = new HttpError("youre not logged in", 500)
         return next(error)
     }
 
-    const findCompanyId = findUser.company.find(x => x._id == findEquipment.company)
+    const findCompanyId = findUser.company.filter(x => x == findEquipment.company)
 
     if (!findCompanyId) {
         const error = new HttpError("user doesnt have access to that equipment")
