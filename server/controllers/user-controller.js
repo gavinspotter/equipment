@@ -148,10 +148,17 @@ const login = async (req, res, next) => {
 
 const takeEquipment = async (req, res, next) => {
 
-    const { timein, jobdescription, company } = req.body
+    const { timein, jobdescription, equipment } = req.body
 
 
     let findEquipment
+
+    try {
+        findEquipment = Equipment.findById(equipment)
+    } catch (err) {
+        const error = new HttpError("couldnt find equpiment", 500)
+        return next(error)
+    }
 
 
     const ehistory = {
