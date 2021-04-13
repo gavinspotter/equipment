@@ -272,7 +272,16 @@ const addUserToEquipment = async (req, res, next) => {
         findEhistory.users.push(findUser.id)
     } catch (err) {
         const error = new HttpError("couldnt add to array")
+        return next(error)
     }
+
+    const checkUser = findEhistory.users.find(x => x == findUser)
+
+    if (checkUser) {
+        const error = new HttpError("you already have that equipment out")
+        return next(error)
+    }
+
 
     res.json({ history: findEhistory })
 
