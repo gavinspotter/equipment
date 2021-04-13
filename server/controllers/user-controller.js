@@ -275,6 +275,13 @@ const addUserToEquipment = async (req, res, next) => {
         return next(error)
     }
 
+    try {
+        findEhistory.save()
+    } catch (err) {
+        const error = new HttpError("couldnt save ")
+        return next(error)
+    }
+
     const checkUser = findEhistory.users.find(x => x == findUser)
 
     if (checkUser) {
