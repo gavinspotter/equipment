@@ -235,7 +235,7 @@ const takeEquipment = async (req, res, next) => {
 
 const addUserToEquipment = async (req, res, next) => {
 
-    const { equipment } = req.body
+    const { equipment, ehistory } = req.body
 
     let findUser
 
@@ -244,8 +244,9 @@ const addUserToEquipment = async (req, res, next) => {
     } catch (err) {
         const error = new HttpError("couldnt find user")
         return next(error)
-
     }
+
+
 
     let findEquipment
 
@@ -255,6 +256,16 @@ const addUserToEquipment = async (req, res, next) => {
         const error = new HttpError("couldnt find equipment")
         return next(error)
     }
+
+    const findEhistory = findEquipment.eHistory.find(x => x.id == ehistory)
+
+    try {
+        findEhistory.users.push(findUser.id)
+    } catch (err) {
+        const error = new HttpError("couldnt add to array")
+    }
+
+    res.json({ history: findEhistory })
 
 
 
