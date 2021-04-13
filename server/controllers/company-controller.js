@@ -240,7 +240,7 @@ const addUserToCompany = async (req, res, next) => {
     }
 
     try {
-        findEmail.company.push(snatchCompany)
+        findEmail.company.push(req.userData.userId)
     } catch (err) {
         const error = new HttpError("couldnt add company", 500)
         return next(error)
@@ -253,7 +253,7 @@ const addUserToCompany = async (req, res, next) => {
         return next(error)
     }
 
-    res.json({ company: snatchCompany.employees, user: findEmail.company })
+    res.json({ companyEmployees: snatchCompany.employees, userCompany: findEmail.company })
 }
 
 
