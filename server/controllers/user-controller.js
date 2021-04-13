@@ -235,6 +235,7 @@ const takeEquipment = async (req, res, next) => {
 
 const addUserToEquipment = async (req, res, next) => {
 
+    const { equipment } = req.body
 
     let findUser
 
@@ -245,6 +246,17 @@ const addUserToEquipment = async (req, res, next) => {
         return next(error)
 
     }
+
+    let findEquipment
+
+    try {
+        findEquipment = await Equipment.findById(equipment)
+    } catch (err) {
+        const error = new HttpError("couldnt find equipment")
+        return next(error)
+    }
+
+
 
 
 
