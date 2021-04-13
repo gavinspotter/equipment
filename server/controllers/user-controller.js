@@ -176,6 +176,9 @@ const takeEquipment = async (req, res, next) => {
         return next(error)
     }
 
+    let checkIfEquipmentIsOut
+
+
 
 
     const ehistory = {
