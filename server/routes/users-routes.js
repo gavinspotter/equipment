@@ -15,6 +15,8 @@ router.post("/login", usersController.login)
 
 router.use(checkAuth);
 
+router.post("/addUserToEquipment", usersController.addUserToEquipment)
+
 router.post("/takeEquipment", usersController.takeEquipment)
 
 module.exports = router
