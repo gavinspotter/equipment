@@ -200,6 +200,13 @@ const takeEquipment = async (req, res, next) => {
         return next(error)
     }
 
+    try {
+        findUser.equipment.push(findEquipment)
+    } catch (err) {
+        const error = new HttpError("push failed")
+        return next(error)
+    }
+
 
 
 
