@@ -246,7 +246,14 @@ const addUserToCompany = async (req, res, next) => {
         return next(error)
     }
 
-    res.json({ company: snatchCompany.employees })
+    try {
+        await findEmail.save()
+    } catch (err) {
+        const error = new HttpError("couldnt save company", 500)
+        return next(error)
+    }
+
+    res.json({ company: snatchCompany.employees, user: findEmail.company })
 }
 
 
