@@ -276,13 +276,13 @@ const addUserToEquipment = async (req, res, next) => {
     }
 
     try {
-        findEhistory.save()
+        await findEquipment.save()
     } catch (err) {
         const error = new HttpError("couldnt save ")
         return next(error)
     }
 
-    const checkUser = findEhistory.users.find(x => x == findUser)
+    const checkUser = findEhistory.users.filter(x => x.id == findUser)
 
     if (checkUser) {
         const error = new HttpError("you already have that equipment out")
