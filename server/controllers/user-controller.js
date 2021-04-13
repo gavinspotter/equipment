@@ -151,18 +151,7 @@ const takeEquipment = async (req, res, next) => {
     const { timein, jobdescription, company } = req.body
 
 
-    let findCompany
-    try {
-        findCompany = await User.find({ company: company })
-    } catch (err) {
-        const error = new HttpError("couldnt find the company", 500)
-        return next(error)
-    }
-
-    if (!findCompany) {
-        const error = new HttpError("youre not apart of that company", 500)
-        return next(error)
-    }
+    let findEquipment
 
 
     const ehistory = {
@@ -172,6 +161,7 @@ const takeEquipment = async (req, res, next) => {
         users: [req.userData.userId],
         jobDescription: jobdescription
     }
+
 
 
 
