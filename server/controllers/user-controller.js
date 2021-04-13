@@ -160,6 +160,10 @@ const takeEquipment = async (req, res, next) => {
         return next(error)
     }
 
+    let findUser
+
+
+
 
     const ehistory = {
         dateOfUse: {
