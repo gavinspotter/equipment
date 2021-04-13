@@ -246,6 +246,10 @@ const addUserToEquipment = async (req, res, next) => {
         return next(error)
     }
 
+    if (!findUser) {
+        const error = new HttpError("thats not a user")
+        return next(error)
+    }
 
 
     let findEquipment
@@ -254,6 +258,11 @@ const addUserToEquipment = async (req, res, next) => {
         findEquipment = await Equipment.findById(equipment)
     } catch (err) {
         const error = new HttpError("couldnt find equipment")
+        return next(error)
+    }
+
+    if (!findEquipment) {
+        const error = new HttpError("thats not a piece of equipment")
         return next(error)
     }
 
