@@ -322,7 +322,9 @@ const addUserToEquipment = async (req, res, next) => {
 
 const setEquipmentBack = async (req, res, next) => {
 
-    const { putback } = req.body
+    const { equipment, ehist, putback } = req.body
+
+
 
 
 
