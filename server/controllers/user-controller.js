@@ -157,7 +157,7 @@ const takeEquipment = async (req, res, next) => {
 
     try {
         findEquipment = await Equipment.findById(equipment)
-        console.log(findEquipment.company)
+        // console.log(findEquipment.company)
     } catch (err) {
         const error = new HttpError("couldnt find equpiment", 500)
         return next(error)
@@ -167,13 +167,13 @@ const takeEquipment = async (req, res, next) => {
 
     try {
         findUser = await Employee.findById(req.userData.userId)
-        console.log(findUser.companys)
+        // console.log(findUser.companys)
     } catch (err) {
         const error = new HttpError("youre not logged in", 500)
         return next(error)
     }
 
-    console.log(findUser.companys.find(z => z == `${findEquipment.company}`))
+    // console.log(findUser.companys.find(z => z == `${findEquipment.company}`))
 
     const checkCompanyId = findUser.companys.find(z => z == `${findEquipment.company}`)
 
@@ -187,6 +187,9 @@ const takeEquipment = async (req, res, next) => {
     // } catch (error) {
 
     // }
+    const checkForOtherUsersIfEquipmentIsOut = findEquipment.eHistory[findEquipment.eHistory.length - 1].dateOfUse.out
+
+    console.log(checkForOtherUsersIfEquipmentIsOut)
 
 
 
@@ -204,6 +207,9 @@ const takeEquipment = async (req, res, next) => {
         const error = new HttpError("you already have that equipment")
         return next(error)
     }
+
+
+
 
 
     const ehistory = {
@@ -314,7 +320,11 @@ const addUserToEquipment = async (req, res, next) => {
 
 }
 
+const setEquipmentBack = async (req, res, next) => {
 
+}
+
+exports.setEquipmentBack = setEquipmentBack
 exports.addUserToEquipment = addUserToEquipment
 exports.takeEquipment = takeEquipment
 exports.login = login;
