@@ -8,7 +8,7 @@ const userSchema = new Schema({
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    company: [{ type: mongoose.Types.ObjectId, required: true, ref: "Company" }],
+    companys: [{ type: mongoose.Types.ObjectId, required: true, ref: "Company" }],
     equipment: [{ type: mongoose.Types.ObjectId, required: true, ref: "Equipment" }],
 })
 

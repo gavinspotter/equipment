@@ -220,6 +220,7 @@ const addUserToCompany = async (req, res, next) => {
 
     const ace = snatchCompany.employees.find(x => x == findEmail.id)
 
+    console.log(ace)
     if (ace) {
         const error = new HttpError("this is already an employee of your company", 500)
         return next(error)
@@ -235,12 +236,15 @@ const addUserToCompany = async (req, res, next) => {
     try {
         await snatchCompany.save()
     } catch (err) {
+
+        console.log(err)
         const error = new HttpError("couldnt save", 500)
         return next(error)
+
     }
 
     try {
-        findEmail.company.push(req.userData.userId)
+        findEmail.companys.push(req.userData.userId)
     } catch (err) {
         const error = new HttpError("couldnt add company", 500)
         return next(error)

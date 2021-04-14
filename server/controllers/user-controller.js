@@ -1,6 +1,8 @@
 const HttpError = require("../models/HttpError")
 const User = require("../models/user")
 
+const Employee = require("../models/user")
+
 const Company = require("../models/company")
 const Equipment = require("../models/equipment")
 
@@ -155,6 +157,7 @@ const takeEquipment = async (req, res, next) => {
 
     try {
         findEquipment = await Equipment.findById(equipment)
+        console.log(findEquipment.company)
     } catch (err) {
         const error = new HttpError("couldnt find equpiment", 500)
         return next(error)
@@ -163,31 +166,42 @@ const takeEquipment = async (req, res, next) => {
     let findUser
 
     try {
-        findUser = await User.findById(req.userData.userId)
+        findUser = await Employee.findById(req.userData.userId)
+        console.log(findUser.companys)
     } catch (err) {
         const error = new HttpError("youre not logged in", 500)
         return next(error)
     }
 
-    const findCompanyId = findUser.company.filter(x => x == findEquipment.company)
+    console.log(findUser.companys.find(z => z == `${findEquipment.company}`))
 
-    if (!findCompanyId) {
+    const checkCompanyId = findUser.companys.find(z => z == `${findEquipment.company}`)
+
+
+
+
+
+
+    // try {
+    //     findComponyById = await findUser.company.findById(findEquipment)
+    // } catch (error) {
+
+    // }
+
+
+
+    if (!checkCompanyId) {
         const error = new HttpError("user doesnt have access to that equipment")
         return next(error)
     }
 
-    let checkIfEquipmentIsOut
 
 
-    try {
-        checkIfEquipmentIsOut = await User.find({ equipment: findEquipment.id })
-    } catch (err) {
-        const error = new HttpError("couldnt find equipment in user")
-        return next(error)
-    }
+
+    const checkIfEquipmentIsOut = findUser.equipment.find(x => x == `${findEquipment.id}`)
 
     if (checkIfEquipmentIsOut) {
-        const error = new HttpError("that equipment is out")
+        const error = new HttpError("you already have that equipment")
         return next(error)
     }
 
