@@ -5,7 +5,8 @@ const Schema = mongoose.Schema
 const equipmentHistorySchema = new Schema({
     dateOfUse: {
         in: { type: String, required: true },
-        out: { type: String }
+        out: { type: String },
+        hi: { type: String }
     },
     users: [{ type: mongoose.Types.ObjectId, required: true, ref: "User" }],
     jobDescription: { type: String, required: true }

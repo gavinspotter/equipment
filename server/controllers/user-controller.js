@@ -215,7 +215,7 @@ const takeEquipment = async (req, res, next) => {
     const ehistory = {
         dateOfUse: {
             in: timein,
-            out: "in use"
+
         },
         users: [req.userData.userId],
         jobDescription: jobdescription
@@ -336,20 +336,21 @@ const setEquipmentBack = async (req, res, next) => {
         return next(error)
     }
 
-    const findEquipmentHistory = findEquipment.eHistory.find(x => x.id == `${ehist}`)
+    const findEquipmentHistory = findEquipment.eHistory.find(x => x.id == ehist)
 
 
     findEquipmentHistory.dateOfUse.out = putback
 
+
     try {
         findEquipment.save()
     } catch (err) {
-
+        const error = new HttpError("couldnt save to database")
+        return next(error)
     }
 
 
 
-    console.log(findEquipmentHistory)
 
     // try {
     //     await Equipment.updateOne({ ehist }, { $set: { back: "time" } })
