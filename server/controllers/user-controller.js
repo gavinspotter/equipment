@@ -187,9 +187,9 @@ const takeEquipment = async (req, res, next) => {
     // } catch (error) {
 
     // }
-    const checkForOtherUsersIfEquipmentIsOut = findEquipment.eHistory[findEquipment.eHistory.length - 1].dateOfUse.out
+    //const checkForOtherUsersIfEquipmentIsOut = findEquipment.eHistory[findEquipment.eHistory.length - 1].dateOfUse.out
 
-    console.log(checkForOtherUsersIfEquipmentIsOut)
+    //console.log(checkForOtherUsersIfEquipmentIsOut)
 
 
 
@@ -214,7 +214,8 @@ const takeEquipment = async (req, res, next) => {
 
     const ehistory = {
         dateOfUse: {
-            in: timein
+            in: timein,
+            out: "in use"
         },
         users: [req.userData.userId],
         jobDescription: jobdescription
@@ -324,9 +325,39 @@ const setEquipmentBack = async (req, res, next) => {
 
     const { equipment, ehist, putback } = req.body
 
+    let findEquipment
 
 
 
+    try {
+        findEquipment = await Equipment.findById(equipment)
+    } catch (err) {
+        const error = new HttpError("couldnt find equipment by id")
+        return next(error)
+    }
+
+    const findEquipmentHistory = findEquipment.eHistory.find(x => x.id == `${ehist}`)
+
+
+    findEquipmentHistory.dateOfUse.out = putback
+
+    try {
+        findEquipment.save()
+    } catch (err) {
+
+    }
+
+
+
+    console.log(findEquipmentHistory)
+
+    // try {
+    //     await Equipment.updateOne({ ehist }, { $set: { back: "time" } })
+    // } catch (err) {
+
+    // }
+
+    res.json({ findEquipmentHistory })
 
 }
 
