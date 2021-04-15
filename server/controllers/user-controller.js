@@ -350,6 +350,7 @@ const setEquipmentBack = async (req, res, next) => {
         return next(error)
     }
 
+
     const findEquipmentHistory = findEquipment.eHistory.find(x => x.id == ehist)
 
 
@@ -357,7 +358,7 @@ const setEquipmentBack = async (req, res, next) => {
 
 
     try {
-        findEquipment.save()
+        await findEquipment.save()
     } catch (err) {
         const error = new HttpError("couldnt save to database")
         return next(error)
@@ -373,6 +374,28 @@ const setEquipmentBack = async (req, res, next) => {
         return next(error)
     }
 
+    const pullEquipment = findUser.map(x => x.equipment.find(z => z == equipment))
+
+    try {
+        findUser.forEach(a => a.equipment.pull(equipment))
+
+
+    } catch (err) {
+        console.log(err)
+        const error = new HttpError("couldnt remove equipment")
+        return next(error)
+    }
+
+    try {
+
+        await findUser.forEach(a => a.save())
+    } catch (err) {
+        console.log(err)
+        const error = new HttpError("couldnt save removal")
+        return next(error)
+    }
+
+
 
 
 
@@ -382,7 +405,7 @@ const setEquipmentBack = async (req, res, next) => {
 
     // }
 
-    res.json({ findEquipmentHistory, findUser })
+    res.json({ findEquipmentHistory, user: findUser })
 
 }
 
