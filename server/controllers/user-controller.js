@@ -350,6 +350,16 @@ const setEquipmentBack = async (req, res, next) => {
     }
 
 
+    let findUser
+
+    try {
+        findUser = await Employee.find({ equipment: equipment })
+    } catch (err) {
+        const error = new HttpError("couldnt find a user with that equipment")
+        return next(error)
+    }
+
+
 
 
     // try {
