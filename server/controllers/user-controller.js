@@ -310,10 +310,24 @@ const addUserToEquipment = async (req, res, next) => {
         return next(error)
     }
 
+    try {
+        findUser.equipment.push(findEquipment.id)
+    } catch (err) {
+        const error = new HttpError("couldnt add equipment")
+        return next(error)
+    }
+
+    try {
+        findUser.save()
+    } catch (err) {
+        const error = new HttpError("couldnt save equipment")
+        return next(error)
+    }
 
 
 
-    res.json({ history: findEhistory })
+
+    res.json({ history: findEhistory, user: findUser })
 
 
 
@@ -368,7 +382,7 @@ const setEquipmentBack = async (req, res, next) => {
 
     // }
 
-    res.json({ findEquipmentHistory })
+    res.json({ findEquipmentHistory, findUser })
 
 }
 
