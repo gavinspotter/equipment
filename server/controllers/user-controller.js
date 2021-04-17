@@ -374,7 +374,8 @@ const setEquipmentBack = async (req, res, next) => {
         return next(error)
     }
 
-    const pullEquipment = findUser.map(x => x.equipment.find(z => z == equipment))
+    //const pullEquipment = findUser.map(x => x.equipment.find(z => z == equipment))
+
 
     try {
         findUser.forEach(a => a.equipment.pull(equipment))
