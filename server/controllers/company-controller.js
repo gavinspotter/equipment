@@ -60,7 +60,7 @@ const signup = async (req, res, next) => {
 
     try {
         token = jwt.sign(
-            { userId: createdCompany.id, username: createdCompany.username },
+            { companyId: createdCompany.id, username: createdCompany.username },
             'supersecret_dont_share',
             { expiresIn: '1h' }
         );
@@ -72,7 +72,7 @@ const signup = async (req, res, next) => {
         return next(error);
     }
 
-    res.status(201).json({ userId: createdCompany.id, username: createdCompany.username, token: token })
+    res.status(201).json({ companyId: createdCompany.id, username: createdCompany.username, token: token })
 
 
 }
@@ -212,7 +212,7 @@ const addUserToCompany = async (req, res, next) => {
     let snatchCompany
 
     try {
-        snatchCompany = await Company.findById(req.userData.userId)
+        snatchCompany = await Company.findById(req.companyData.companyId)
     } catch (err) {
         const error = new HttpError("could find company by id", 500)
         return next(error)
@@ -244,7 +244,7 @@ const addUserToCompany = async (req, res, next) => {
     }
 
     try {
-        findEmail.companys.push(req.userData.userId)
+        findEmail.companys.push(req.companyData.companyId)
     } catch (err) {
         const error = new HttpError("couldnt add company", 500)
         return next(error)
