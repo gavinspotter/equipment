@@ -14,12 +14,13 @@ module.exports = (req, res, next) => {
             return next(error)
         }
 
-        const decodedToken = jwt.verify(token, "dont_share_this")
+        const decodedToken = jwt.verify(token, "supersecret_dont_share")
 
         req.companyData = { companyId: decodedToken.companyId }
         next()
 
     } catch (err) {
+        console.log(err)
         const error = new HttpError("authorization failed", 403)
         return next(error)
     }

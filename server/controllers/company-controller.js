@@ -121,7 +121,7 @@ const login = async (req, res, next) => {
 
     try {
         token = jwt.sign(
-            { userId: existingUser.id, username: existingUser.username },
+            { companyId: existingUser.id, username: existingUser.username },
             'supersecret_dont_share',
             { expiresIn: '1h' }
         );
@@ -134,9 +134,9 @@ const login = async (req, res, next) => {
     }
 
     res.json({
-        userId: existingUser.id,
+        companyId: existingUser.id,
         username: existingUser.username,
-        token: token
+        companyToken: token
     })
 
 }
@@ -148,7 +148,7 @@ const createEquipment = async (req, res, next) => {
     const createdEquipment = new Equipment(
         {
             name: name,
-            company: req.userData.userId,
+            company: req.companyData.companyId,
 
         }
     )
@@ -156,7 +156,7 @@ const createEquipment = async (req, res, next) => {
     let company
 
     try {
-        company = await Company.findById(req.userData.userId)
+        company = await Company.findById(req.companyData.companyId)
     } catch (err) {
         const error = new HttpError("couldnt find company by id", 500)
         return next(error)
