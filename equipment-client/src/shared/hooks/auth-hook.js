@@ -50,5 +50,54 @@ export const useAuth = () => {
         }
     }, [login]);
 
-    return { token, login, logout, userId };
+    // 
+
+    const [companyToken, setCompanyToken] = useState(false);
+    const [companyTokenExpirationDate, setCompanyTokenExpirationDate] = useState();
+    const [companyId, setCompanyId] = useState(false);
+
+    const companyLogin = useCallback((uid, token, expirationDate) => {
+        setCompanyToken(token);
+        setCompanyId(uid);
+        const tokenExpirationDate =
+            expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60);
+        setCompanyTokenExpirationDate(tokenExpirationDate);
+        localStorage.setItem(
+            'companyData',
+            JSON.stringify({
+                companyId: uid,
+                companyToken: token,
+                expiration: tokenExpirationDate.toISOString()
+            })
+        );
+    }, []);
+
+    const companyLogout = useCallback(() => {
+        setCompanyToken(null);
+        setCompanyTokenExpirationDate(null);
+        setCompanyId(null);
+        localStorage.removeItem('companyData');
+    }, []);
+
+    useEffect(() => {
+        if (companyToken && companyTokenExpirationDate) {
+            const remainingTime = companyTokenExpirationDate.getTime() - new Date().getTime();
+            logoutTimer = setTimeout(companyLogout, remainingTime);
+        } else {
+            clearTimeout(logoutTimer);
+        }
+    }, [companyToken, companyLogout, companyTokenExpirationDate]);
+
+    useEffect(() => {
+        const storedData = JSON.parse(localStorage.getItem('companyData'));
+        if (
+            storedData &&
+            storedData.companyToken &&
+            new Date(storedData.expiration) > new Date()
+        ) {
+            companyLogin(storedData.companyId, storedData.companyToken, new Date(storedData.expiration));
+        }
+    }, [companyLogin]);
+
+    return { token, login, logout, userId, companyToken, companyLogin, companyLogout, companyId };
 };
