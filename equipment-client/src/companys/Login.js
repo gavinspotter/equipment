@@ -25,13 +25,32 @@ const Login = () => {
 
     const { register, handleSubmit } = useForm()
 
+    const onSubmit = async (data) => {
+        try {
+            const responseData = await sendRequest(
+                `http://localhost:5000/api/company/login`,
+                "POST",
+                JSON.stringify({
+                    username: data.username,
+                    password: data.password
+                }),
+                {
+                    "Content-Type": "application/json"
+                }
+            )
+            auth.login(responseData.userId, responseData.token)
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
     return (
         <React.Fragment>
             <ErrorModal error={error} onClear={clearError} />
             <div>
                 {isLoading && <LoadingSpinner asOverlay />}
                 <h2> Company Login </h2>
-                <form>
+                <form onSubmit={handleSubmit(onSubmit)}>
                     <Input
                         name="username"
                         valRef={register}
