@@ -38,7 +38,7 @@ const Login = () => {
                     "Content-Type": "application/json"
                 }
             )
-            auth.login(responseData.userId, responseData.token)
+            auth.companyLogin(responseData.companyId, responseData.companyToken)
         } catch (err) {
             console.log(err)
         }
