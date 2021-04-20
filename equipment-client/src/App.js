@@ -7,6 +7,7 @@ import { useAuth } from './shared/hooks/auth-hook';
 const App = () => {
 
 
+
   const { token, login, logout, userId, companyToken, companyLogin, companyLogout, companyId } = useAuth();
 
 
