@@ -10,8 +10,12 @@ import CompanySignup from '../../companys/CompanySignup'
 const HomePage = () => {
     return (
         <div className="home">
-            <CompanyLogin />
-            <CompanySignup />
+            <CompanyLogin
+                companyLoginCard=""
+            />
+            <CompanySignup
+                companySignupCard=""
+            />
 
 
         </div>
