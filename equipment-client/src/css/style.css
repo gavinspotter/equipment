@@ -97,7 +97,18 @@ body {
   transition: all 200ms; }
 
 .card__company--login {
-  background-color: #fff; }
+  position: absolute;
+  display: inline-block;
+  text-align: center;
+  background-color: #fff;
+  top: 20rem;
+  left: 30rem;
+  width: 30rem;
+  height: 30rem;
+  border-radius: 100%; }
+  .card__company--login-img {
+    background-image: url(../img/rounddoorhome.jpg);
+    background-size: cover; }
 
 .card__company--signup {
   background-color: #fff; }

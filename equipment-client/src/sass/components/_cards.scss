@@ -3,8 +3,20 @@
 
     &__company{
         &--login{
-            
+        position:absolute;
+        display: inline-block;
+        text-align: center;
         background-color: $color-white;
+        top:20rem;
+        left:30rem;
+        width:30rem;
+        height:30rem;
+        border-radius: 100%;
+       
+        &-img{
+            background-image: url(../img/rounddoorhome.jpg);
+            background-size: cover;
+        }
         }
         &--signup{
 

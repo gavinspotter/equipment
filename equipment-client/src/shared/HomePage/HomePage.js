@@ -14,7 +14,7 @@ const HomePage = () => {
                 companyLoginCard="card__company--login"
             />
             <CompanySignup
-                companySignupCard=""
+                companySignupCard="card__company--signup"
             />
 
 
