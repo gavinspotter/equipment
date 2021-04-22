@@ -16,7 +16,7 @@ import Button from '../shared/components/FormElements/Button'
 
 
 
-const CompanyLogin = () => {
+const CompanyLogin = (props) => {
 
 
     const auth = useContext(AuthContext)
@@ -46,7 +46,7 @@ const CompanyLogin = () => {
     }
 
     return (
-        <div>
+        <div className={props.companyLoginCard}>
             <ErrorModal error={error} onClear={clearError} />
             <div>
                 {isLoading && <LoadingSpinner asOverlay />}

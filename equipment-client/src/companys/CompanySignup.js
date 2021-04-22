@@ -15,7 +15,7 @@ import Input from "../shared/components/FormElements/Input"
 import Button from '../shared/components/FormElements/Button'
 
 
-const CompanySignup = () => {
+const CompanySignup = (props) => {
 
 
     const auth = useContext(AuthContext)
@@ -46,7 +46,7 @@ const CompanySignup = () => {
     }
 
     return (
-        <div>
+        <div className={props.companySignupCard}>
             <ErrorModal error={error} onClear={clearError} />
             <div>
                 {isLoading && <LoadingSpinner asOverlay />}

@@ -5,6 +5,7 @@ import CompanySignup from './companys/CompanySignup';
 import CompanyHome from './companys/pages/CompanyHome';
 
 import { AuthContext } from "./shared/context/auth-context"
+import HomePage from './shared/HomePage/HomePage';
 import { useAuth } from './shared/hooks/auth-hook';
 
 const App = () => {
@@ -33,12 +34,16 @@ const App = () => {
   } else {
     routes = (
       <Switch>
+        <Route path="/">
+          <HomePage />
+        </Route>
         <Route path="/company/login">
           <CompanyLogin />
         </Route>
         <Route path="/company/signup">
           <CompanySignup />
         </Route>
+        <Redirect to="/" />
       </Switch>
     )
   }
