@@ -7,8 +7,8 @@ import { useForm } from 'react-hook-form'
 import { Link } from "react-router-dom"
 
 
-import { AuthContext } from "../../shared/context/auth-context"
-import { useHttpClient } from "../../shared/hooks/http-hook"
+import { AuthContext } from "../shared/context/auth-context"
+import { useHttpClient } from "../shared/hooks/http-hook"
 import ErrorModal from '../shared/components/UIElements/ErrorModal'
 import LoadingSpinner from '../shared/components/UIElements/LoadingSpinner'
 import Input from "../shared/components/FormElements/Input"
@@ -16,7 +16,7 @@ import Button from '../shared/components/FormElements/Button'
 
 
 
-const Login = () => {
+const CompanyLogin = () => {
 
 
     const auth = useContext(AuthContext)
@@ -26,6 +26,7 @@ const Login = () => {
     const { register, handleSubmit } = useForm()
 
     const onSubmit = async (data) => {
+        console.log(data)
         try {
             const responseData = await sendRequest(
                 `http://localhost:5000/api/company/login`,
@@ -45,31 +46,27 @@ const Login = () => {
     }
 
     return (
-        <React.Fragment>
+        <div>
             <ErrorModal error={error} onClear={clearError} />
             <div>
                 {isLoading && <LoadingSpinner asOverlay />}
                 <h2> Company Login </h2>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <Input
-                        name="username"
-                        valRef={register}
-                        label="username"
-                        element="input"
+                    <input
+                        {...register("username")}
+
                     />
-                    <Input
-                        name="password"
-                        valRef={register}
-                        label="password"
-                        element="input"
+                    <br />
+                    <input
+                        {...register("password")}
                         type="password"
                     />
                     did you mean to signup
                     <Button> login </Button>
                 </form>
             </div>
-        </React.Fragment>
+        </div>
     )
 }
 
-export default Login
+export default CompanyLogin

@@ -4,7 +4,7 @@ const Input = (props) => {
 
     const element = props.element === "input" ? (
         <input
-            name={props.name}
+
             ref={props.valRef}
             type={props.type}
             defaultValue={props.dv}

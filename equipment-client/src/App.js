@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom"
+import CompanyLogin from './companys/CompanyLogin';
 import CompanyHome from './companys/pages/CompanyHome';
 
 import { AuthContext } from "./shared/context/auth-context"
@@ -28,7 +29,13 @@ const App = () => {
     )
 
   } else {
-
+    routes = (
+      <Switch>
+        <Route path="/company/login">
+          <CompanyLogin />
+        </Route>
+      </Switch>
+    )
   }
 
   return (
@@ -36,6 +43,9 @@ const App = () => {
       value={{ isLoggedIn: !!token, token: token, userId: userId, login: login, logout: logout, companyIsLoggedIn: !!companyToken, companyToken: companyToken, companyId: companyId, companyLogin: companyLogin, companyLogout: companyLogout }}
     >
 
+      <Router>
+        {routes}
+      </Router>
 
     </AuthContext.Provider>
 
