@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom"
+import CompanyHome from './companys/pages/CompanyHome';
 
 import { AuthContext } from "./shared/context/auth-context"
 import { useAuth } from './shared/hooks/auth-hook';
@@ -18,6 +19,13 @@ const App = () => {
 
 
   } else if (companyToken) {
+    routes = (
+      <Switch>
+        <Route path="/company/home">
+          <CompanyHome />
+        </Route>
+      </Switch>
+    )
 
   } else {
 
