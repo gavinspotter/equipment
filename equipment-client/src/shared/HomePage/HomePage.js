@@ -11,7 +11,7 @@ const HomePage = () => {
     return (
         <div className="home">
             <CompanyLogin
-                companyLoginCard=""
+                companyLoginCard="card__company--login"
             />
             <CompanySignup
                 companySignupCard=""

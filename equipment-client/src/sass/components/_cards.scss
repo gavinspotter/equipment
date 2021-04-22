@@ -1,0 +1,14 @@
+.card{
+    
+
+    &__company{
+        &--login{
+            
+        background-color: $color-white;
+        }
+        &--signup{
+
+        background-color: $color-white;
+        }
+    }
+}

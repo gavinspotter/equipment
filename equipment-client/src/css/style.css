@@ -96,6 +96,12 @@ body {
   opacity: 0;
   transition: all 200ms; }
 
+.card__company--login {
+  background-color: #fff; }
+
+.card__company--signup {
+  background-color: #fff; }
+
 .home {
   height: 100vh;
   background-image: url(../img/traquipmenthome.jpg);
