@@ -9,7 +9,7 @@ import { AuthContext } from "../shared/context/auth-context"
 import { useHttpClient } from "../shared/hooks/http-hook"
 
 
-const Login = (props) => {
+const EmployeeLogin = (props) => {
 
     const auth = useContext(AuthContext)
 
@@ -44,7 +44,7 @@ const Login = (props) => {
                 <ErrorModal error={error} onClear={clearError} />
                 <div>
                     {isLoading && <LoadingSpinner asOverlay />}
-                    <h2> Company Login </h2>
+                    <h2> employee Login </h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <input
                             {...register("email")}
@@ -63,4 +63,4 @@ const Login = (props) => {
     )
 }
 
-export default Login
+export default EmployeeLogin
