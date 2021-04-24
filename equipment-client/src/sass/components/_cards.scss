@@ -12,12 +12,30 @@
         width:30rem;
         height:30rem;
         border-radius: 100%;
+        background-image: url(../img/rounddoorhome.jpg);
+                background-size:54rem;
+                background-position-x: -11rem;
+                background-position-y: -6rem;
+
+                
+                &-text{
+                    color: $color-white;
+                    margin-top: 10rem;
+                }
+
+        }
+
+        
        
-        &-img{
-            background-image: url(../img/rounddoorhome.jpg);
-            background-size: cover;
-        }
-        }
+        // &-img{
+            
+        //     // width:30rem;
+        //     // height:30rem;
+        //     // border-radius: 100%;
+        //     background-image: url(../img/rounddoorhome.jpg);
+        //         background-size: cover;
+        
+        // }
         &--signup{
 
         background-color: $color-white;

@@ -105,10 +105,14 @@ body {
   left: 30rem;
   width: 30rem;
   height: 30rem;
-  border-radius: 100%; }
-  .card__company--login-img {
-    background-image: url(../img/rounddoorhome.jpg);
-    background-size: cover; }
+  border-radius: 100%;
+  background-image: url(../img/rounddoorhome.jpg);
+  background-size: 54rem;
+  background-position-x: -11rem;
+  background-position-y: -6rem; }
+  .card__company--login-text {
+    color: #fff;
+    margin-top: 10rem; }
 
 .card__company--signup {
   background-color: #fff; }

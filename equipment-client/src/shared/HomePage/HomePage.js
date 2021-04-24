@@ -12,10 +12,12 @@ const HomePage = () => {
         <div className="home">
             <CompanyLogin
                 companyLoginCard="card__company--login"
+                companyLoginCardText="card__company--login-text"
             />
             <CompanySignup
                 companySignupCard="card__company--signup"
             />
+
 
 
         </div>

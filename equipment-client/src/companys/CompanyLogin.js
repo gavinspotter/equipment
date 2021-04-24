@@ -46,24 +46,27 @@ const CompanyLogin = (props) => {
     }
 
     return (
-        <div className={props.companyLoginCard}>
-            <ErrorModal error={error} onClear={clearError} />
-            <div>
-                {isLoading && <LoadingSpinner asOverlay />}
-                <h2> Company Login </h2>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <input
-                        {...register("username")}
 
-                    />
-                    <br />
-                    <input
-                        {...register("password")}
-                        type="password"
-                    />
-                    did you mean to signup
-                    <Button> login </Button>
-                </form>
+        <div className={props.companyLoginCard}>
+            <div className={props.companyLoginCardText}>
+
+                <ErrorModal error={error} onClear={clearError} />
+                <div>
+                    {isLoading && <LoadingSpinner asOverlay />}
+                    <h2> Company Login </h2>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <input
+                            {...register("username")}
+
+                        />
+                        <br />
+                        <input
+                            {...register("password")}
+                            type="password"
+                        /><br />
+                        <Button> login </Button>
+                    </form>
+                </div>
             </div>
         </div>
     )
