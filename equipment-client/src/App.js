@@ -18,7 +18,11 @@ const App = () => {
   let routes
 
   if (token) {
+    routes = (
+      <Switch>
 
+      </Switch>
+    )
 
 
   } else if (companyToken) {
