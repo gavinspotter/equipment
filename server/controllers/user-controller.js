@@ -228,15 +228,13 @@ const takeEquipment = async (req, res, next) => {
         return next(error)
     }
 
-    try {
-        await findEquipment.save()
-    } catch (err) {
-        const error = new HttpError("save")
-        return next(error)
-    }
+
+    // console.log(findEquipment.eHistory[findEquipment.eHistory.length - 1]._id)
+
+
 
     try {
-        findUser.equipmentTime.push(ehistory)
+        findUser.equipmentTimes.push(findEquipment.eHistory[findEquipment.eHistory.length - 1]._id)
     } catch (err) {
         const error = new HttpError("doesnt have an id")
         return next(error)
@@ -246,6 +244,13 @@ const takeEquipment = async (req, res, next) => {
         findUser.equipment.push(findEquipment)
     } catch (err) {
         const error = new HttpError("push failed")
+        return next(error)
+    }
+
+    try {
+        await findEquipment.save()
+    } catch (err) {
+        const error = new HttpError("save")
         return next(error)
     }
 
