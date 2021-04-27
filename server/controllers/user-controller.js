@@ -236,6 +236,13 @@ const takeEquipment = async (req, res, next) => {
     }
 
     try {
+        findUser.equipmentTime.push(ehistory)
+    } catch (err) {
+        const error = new HttpError("doesnt have an id")
+        return next(error)
+    }
+
+    try {
         findUser.equipment.push(findEquipment)
     } catch (err) {
         const error = new HttpError("push failed")
