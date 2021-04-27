@@ -221,6 +221,11 @@ const takeEquipment = async (req, res, next) => {
         jobDescription: jobdescription
     }
 
+    if (!findEquipment.eHistory[findEquipment.eHistory.length - 1].out) {
+        const error = new HttpError("another user has that equipment")
+        return next(error)
+    }
+
     try {
         findEquipment.eHistory.push(ehistory)
     } catch (err) {
@@ -315,17 +320,25 @@ const addUserToEquipment = async (req, res, next) => {
         return next(error)
     }
 
-    try {
-        await findEquipment.save()
-    } catch (err) {
-        const error = new HttpError("couldnt save ")
-        return next(error)
-    }
 
     try {
         findUser.equipment.push(findEquipment.id)
     } catch (err) {
         const error = new HttpError("couldnt add equipment")
+        return next(error)
+    }
+
+    try {
+        findUser.equipmentTimes.push(findEhistory)
+    } catch (err) {
+        const error = new HttpError("couldnt add time")
+        return next(error)
+    }
+
+    try {
+        await findEquipment.save()
+    } catch (err) {
+        const error = new HttpError("couldnt save ")
         return next(error)
     }
 
