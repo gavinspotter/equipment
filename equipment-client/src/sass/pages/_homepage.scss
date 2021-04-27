@@ -1,9 +1,23 @@
 .home{
-  
 
   height: 100vh;
+  width: 100%;
+  position:fixed;
+  z-index: -1;
+    //background: url(../img/traquipmenthome.jpg);
+    //background-size: cover;
+  //background-repeat: no-repeat;
+  
+  
+  
+
+  &--page{
 
     background-image: url(../img/traquipmenthome.jpg);
     background-size: cover;
-  background-repeat: no-repeat; 
+    
+    
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
 }

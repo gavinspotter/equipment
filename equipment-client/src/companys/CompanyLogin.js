@@ -55,12 +55,12 @@ const CompanyLogin = (props) => {
                     {isLoading && <LoadingSpinner asOverlay />}
                     <h2> Company Login </h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <input
+                        username<br /> <input
                             {...register("username")}
 
                         />
                         <br />
-                        <input
+                        password <br /><input
                             {...register("password")}
                             type="password"
                         /><br />

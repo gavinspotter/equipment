@@ -8,6 +8,7 @@ import LoadingSpinner from '../shared/components/UIElements/LoadingSpinner'
 import { AuthContext } from "../shared/context/auth-context"
 import { useHttpClient } from "../shared/hooks/http-hook"
 
+import "../css/style.css"
 
 const EmployeeLogin = (props) => {
 
@@ -38,7 +39,7 @@ const EmployeeLogin = (props) => {
     }
 
     return (
-        <div className="">
+        <div className="card__employee--login">
             <div className="">
 
                 <ErrorModal error={error} onClear={clearError} />
@@ -46,12 +47,12 @@ const EmployeeLogin = (props) => {
                     {isLoading && <LoadingSpinner asOverlay />}
                     <h2> employee Login </h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <input
+                        email <input
                             {...register("email")}
 
                         />
                         <br />
-                        <input
+                        password <input
                             {...register("password")}
                             type="password"
                         /><br />

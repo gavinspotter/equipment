@@ -115,10 +115,31 @@ body {
     margin-top: 10rem; }
 
 .card__company--signup {
+  position: absolute;
+  display: inline-block;
+  text-align: center;
+  width: 30rem;
+  height: 30rem;
+  left: 30rem;
+  top: 50rem;
+  border-radius: 100%;
   background-color: #fff; }
+
+.card__employee--login {
+  position: absolute;
+  display: inline-block; }
+
+.card__employee--signup {
+  position: absolute;
+  display: inline-block; }
 
 .home {
   height: 100vh;
-  background-image: url(../img/traquipmenthome.jpg);
-  background-size: cover;
-  background-repeat: no-repeat; }
+  width: 100%;
+  position: fixed;
+  z-index: -1; }
+  .home--page {
+    background-image: url(../img/traquipmenthome.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; }

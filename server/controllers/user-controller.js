@@ -382,12 +382,7 @@ const setEquipmentBack = async (req, res, next) => {
     findEquipmentHistory.dateOfUse.out = putback
 
 
-    try {
-        await findEquipment.save()
-    } catch (err) {
-        const error = new HttpError("couldnt save to database")
-        return next(error)
-    }
+
 
 
     let findUser
@@ -409,6 +404,13 @@ const setEquipmentBack = async (req, res, next) => {
     } catch (err) {
         console.log(err)
         const error = new HttpError("couldnt remove equipment")
+        return next(error)
+    }
+
+    try {
+        await findEquipment.save()
+    } catch (err) {
+        const error = new HttpError("couldnt save to database")
         return next(error)
     }
 

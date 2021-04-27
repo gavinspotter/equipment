@@ -8,6 +8,8 @@ import LoadingSpinner from '../shared/components/UIElements/LoadingSpinner'
 import { AuthContext } from "../shared/context/auth-context"
 import { useHttpClient } from "../shared/hooks/http-hook"
 
+import "../css/style.css"
+
 const EmployeeSignup = () => {
     const auth = useContext(AuthContext)
 
@@ -37,7 +39,7 @@ const EmployeeSignup = () => {
     }
 
     return (
-        <div className="">
+        <div className="card__employee--signup">
             <div className="">
 
                 <ErrorModal error={error} onClear={clearError} />

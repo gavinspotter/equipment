@@ -6,11 +6,13 @@ import CompanySignup from '../../companys/CompanySignup'
 import EmployeeLogin from "../../employees/EmployeeLogin"
 import EmployeeSignup from "../../employees/EmployeeSignup"
 
-
+import traqimg from "./traquipmenthome.jpg"
 
 const HomePage = () => {
     return (
-        <div className="home">
+
+        <div>
+            <img src={traqimg} alt="home" className="home" />
             <CompanyLogin
                 companyLoginCard="card__company--login"
                 companyLoginCardText="card__company--login-text"
@@ -21,9 +23,9 @@ const HomePage = () => {
             <EmployeeLogin />
             <EmployeeSignup />
 
-
-
         </div>
+
+
     )
 }
 
