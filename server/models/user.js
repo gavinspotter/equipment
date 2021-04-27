@@ -10,6 +10,7 @@ const userSchema = new Schema({
     password: { type: String, required: true },
     companys: [{ type: mongoose.Types.ObjectId, required: true, ref: "Company" }],
     equipment: [{ type: mongoose.Types.ObjectId, required: true, ref: "Equipment" }],
+    equipmentTimes: [{ type: mongoose.Types.ObjectId, required: true, ref: "Ehistory" }]
 })
 
 userSchema.plugin(uniqueValidator)
