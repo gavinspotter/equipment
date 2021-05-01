@@ -127,7 +127,14 @@ body {
 
 .card__employee--login {
   position: absolute;
-  display: inline-block; }
+  display: inline-block;
+  text-align: center;
+  top: 20rem;
+  left: 80rem;
+  height: 30rem;
+  width: 30rem;
+  border-radius: 100%;
+  background-color: #fff; }
 
 .card__employee--signup {
   position: absolute;
