@@ -10,7 +10,7 @@ const EmployeeHome = () => {
 
     return (
         <div>
-
+            <button onClick={auth.logout}>employee logout</button>
         </div>
     )
 }
