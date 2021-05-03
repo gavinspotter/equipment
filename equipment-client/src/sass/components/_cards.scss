@@ -59,7 +59,18 @@
         left:30rem;
         top: 50rem;
         border-radius: 100%;
-        background-color: $color-white;
+        background-image: linear-gradient(
+                    to right bottom,
+                    rgba(red, 0.8),
+                    rgba(blue, 0.8)
+                  ),url(../img/login.gif);
+                background-size: cover;
+                background-repeat: no-repeat;
+                
+        &-text{
+            color: $color-white;
+            margin-top: 10rem;
+        }
         }
     }
 
