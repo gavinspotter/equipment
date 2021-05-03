@@ -18,6 +18,7 @@ const HomePage = () => {
                 companyLoginCard="card__company--login"
                 companyLoginCardText="card__company--login-text"
             />
+            <div className="homepage-margin">hi</div>
             <CompanySignup
                 companySignupCard="card__company--signup"
 

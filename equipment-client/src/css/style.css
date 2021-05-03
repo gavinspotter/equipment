@@ -15,6 +15,9 @@ body {
   line-height: 1.7;
   color: #777; }
 
+.homepage-margin {
+  top: 80; }
+
 .lds-dual-ring {
   display: inline-block;
   width: 64px;
@@ -148,7 +151,6 @@ body {
   left: 80rem;
   height: 30rem;
   width: 30rem;
-  margin-bottom: 10rem;
   border-radius: 100%;
   background-image: linear-gradient(to right bottom, rgba(255, 0, 0, 0.8), rgba(0, 0, 255, 0.8)), url(../img/login.gif);
   background-size: cover;
