@@ -14,8 +14,8 @@ const HomePage = () => {
 
         <div>
             <img src={topo} alt="home" className="home" />
-            <h1> Track your companys equipment</h1>
-            <h2> Add employee's, create equipment, and save the dates!</h2>
+            <h1 className="home__header"> Track your companys equipment</h1>
+            <h2 className="home__subheader"> Add employee's, create equipment, and save the dates!</h2>
             <CompanyLogin
                 companyLoginCard="card__company--login"
                 companyLoginCardText="card__company--login-text"

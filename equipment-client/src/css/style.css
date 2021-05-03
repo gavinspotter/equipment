@@ -163,6 +163,18 @@ body {
     color: #fff;
     margin-top: 10rem; }
 
+.home__header {
+  position: absolute;
+  top: 5rem;
+  left: 55rem;
+  color: #fff; }
+
+.home__subheader {
+  position: absolute;
+  top: 8rem;
+  left: 50rem;
+  color: #fff; }
+
 .home {
   height: 100vh;
   width: 100%;
