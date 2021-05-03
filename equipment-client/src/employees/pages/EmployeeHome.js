@@ -3,6 +3,7 @@ import React, { useContext } from 'react'
 import { AuthContext } from "../../shared/context/auth-context"
 
 import "../../css/style.css"
+import topohome from "../../img/topohome.gif"
 
 
 const EmployeeHome = () => {
@@ -13,7 +14,7 @@ const EmployeeHome = () => {
 
     return (
         <div>
-            <img />
+            <img src={topohome} alt="equpment_home" className="home" />
             <button onClick={auth.logout}>employee logout</button>
         </div>
     )
