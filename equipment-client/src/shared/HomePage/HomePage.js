@@ -6,7 +6,7 @@ import CompanySignup from '../../companys/CompanySignup'
 import EmployeeLogin from "../../employees/EmployeeLogin"
 import EmployeeSignup from "../../employees/EmployeeSignup"
 
-import traqimg from "./traquipmenthome.jpg"
+import "../../css/style.css"
 import topo from "../../img/topo.gif"
 
 const HomePage = () => {
@@ -14,11 +14,13 @@ const HomePage = () => {
 
         <div>
             <img src={topo} alt="home" className="home" />
+            <h1> Track your companys equipment</h1>
+            <h2> Add employee's, create equipment, and save the dates!</h2>
             <CompanyLogin
                 companyLoginCard="card__company--login"
                 companyLoginCardText="card__company--login-text"
             />
-            <div className="homepage-margin">hi</div>
+            <div className="homepage-margin">margin</div>
             <CompanySignup
                 companySignupCard="card__company--signup"
 

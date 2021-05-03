@@ -48,21 +48,21 @@ const CompanySignup = (props) => {
     return (
         <div className={props.companySignupCard}>
             <ErrorModal error={error} onClear={clearError} />
-            <div>
+            <div className={props.companyText}>
                 {isLoading && <LoadingSpinner asOverlay />}
-                <h2> Company Login </h2>
+                <h2> Company Signup </h2>
                 <form onSubmit={handleSubmit(onSubmit)}>
+                    username<br />
                     <input
                         {...register("username")}
 
-                    />
-                    <br />
+                    /><br />
+                    password<br />
+
                     <input
                         {...register("password")}
                         type="password"
                     />
-                    did you mean to login
-                    <Button> signup </Button>
                 </form>
             </div>
         </div>

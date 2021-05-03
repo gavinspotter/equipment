@@ -16,7 +16,11 @@ body {
   color: #777; }
 
 .homepage-margin {
-  top: 80; }
+  position: absolute;
+  display: inline-block;
+  top: 100rem;
+  left: 20rem;
+  z-index: -2; }
 
 .lds-dual-ring {
   display: inline-block;
