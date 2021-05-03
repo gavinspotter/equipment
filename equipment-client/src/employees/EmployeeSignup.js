@@ -47,16 +47,19 @@ const EmployeeSignup = () => {
                     {isLoading && <LoadingSpinner asOverlay />}
                     <h2> employee signup </h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
+                        name <br />
                         <input
                             {...register("name")}
 
                         />
                         <br />
+                        email <br />
                         <input
                             {...register("email")}
 
                         />
                         <br />
+                        password <br />
                         <input
                             {...register("password")}
                             type="password"
