@@ -40,7 +40,7 @@ const EmployeeSignup = () => {
 
     return (
         <div className="card__employee--signup">
-            <div className="">
+            <div className="card__employee--signup-text">
 
                 <ErrorModal error={error} onClear={clearError} />
                 <div>
