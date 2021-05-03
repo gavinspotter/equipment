@@ -49,12 +49,17 @@ const EmployeeLogin = (props) => {
                     {isLoading && <LoadingSpinner asOverlay />}
                     <h2> employee Login </h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        email <input
+
+                        email
+                        <br />
+                        <input
                             {...register("email")}
 
                         />
                         <br />
-                        password <input
+                        password
+                        <br />
+                        <input
                             {...register("password")}
                             type="password"
                         /><br />

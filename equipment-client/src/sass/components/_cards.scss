@@ -18,7 +18,14 @@
                 //background-size:54rem;
                 //background-position-x: -11rem;
                 //background-position-y: -6rem;
-
+                background-image: linear-gradient(
+                    to right bottom,
+                    rgba(red, 0.8),
+                    rgba(blue, 0.8)
+                  ),url(../img/login.gif);
+                background-size: cover;
+                background-repeat: no-repeat;
+                
                 
                 &-text{
                     color: $color-white;
@@ -74,8 +81,8 @@
             background-size: cover;
             background-repeat: no-repeat;
             &-text{
-                color: rgb(1, 204, 255);
-                margin-top: 5rem;
+                color:$color-white;
+                margin-top: 10rem;
             }
         }
         &--signup{position: absolute;
