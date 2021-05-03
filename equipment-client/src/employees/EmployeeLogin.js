@@ -10,6 +10,8 @@ import { useHttpClient } from "../shared/hooks/http-hook"
 
 import "../css/style.css"
 
+import logingif from "../img/login.gif"
+
 const EmployeeLogin = (props) => {
 
     const auth = useContext(AuthContext)
@@ -40,7 +42,7 @@ const EmployeeLogin = (props) => {
 
     return (
         <div className="card__employee--login">
-            <div className="">
+            <div className="card__employee--login-text">
 
                 <ErrorModal error={error} onClear={clearError} />
                 <div>

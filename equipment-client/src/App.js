@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-d
 import CompanyLogin from './companys/CompanyLogin';
 import CompanySignup from './companys/CompanySignup';
 import CompanyHome from './companys/pages/CompanyHome';
+import EmployeeHome from './employees/pages/EmployeeHome';
 
 import { AuthContext } from "./shared/context/auth-context"
 import HomePage from './shared/HomePage/HomePage';
@@ -20,7 +21,10 @@ const App = () => {
   if (token) {
     routes = (
       <Switch>
-
+        <Route path="/employee/home">
+          <EmployeeHome />
+        </Route>
+        <Redirect to="/employee/home" />
       </Switch>
     )
 
