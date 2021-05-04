@@ -5,14 +5,14 @@ import { useHttpClient } from "../../shared/hooks/http-hook"
 
 
 
-const EmployeeCompanysItem = () => {
+const EmployeeCompanysItem = (props) => {
 
 
 
 
     return (
         <div>
-
+            {props.company}
         </div>
     )
 }
