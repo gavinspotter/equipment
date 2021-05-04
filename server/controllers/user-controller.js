@@ -450,16 +450,22 @@ const getUserCompanys = async (req, res, next) => {
 
     let listOfCompanys
 
+    let acompany
+
     try {
 
-        listOfCompanys = findUser.forEach(z => await Company.findById(z.companys))
+        listOfCompanys = findUser.companys.every(Company.findById)
+
+
+
     } catch (err) {
         const error = new HttpError("couldnt list the companys")
         return next(error)
+
     }
 
 
-    res.json({ foundUser: listOfCompanys })
+    res.json({ foundUser: findUser.companys, stuff: listOfCompanys })
 
 }
 
