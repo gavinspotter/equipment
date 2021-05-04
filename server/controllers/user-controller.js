@@ -437,6 +437,11 @@ const setEquipmentBack = async (req, res, next) => {
 
 }
 
+const getUserCompanys = async (req, res, next) => {
+
+}
+
+
 exports.setEquipmentBack = setEquipmentBack
 exports.addUserToEquipment = addUserToEquipment
 exports.takeEquipment = takeEquipment
