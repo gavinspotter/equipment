@@ -15,7 +15,7 @@ const EmployeeHome = () => {
     return (
         <div>
 
-            <img src={topohome} alt="equpment_home" className="home" />
+            <img src={topohome} alt="equpment_home" className="employeeHome" />
             <button onClick={auth.logout}>employee logout</button>
         </div>
     )
