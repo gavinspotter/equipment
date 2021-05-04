@@ -13,7 +13,7 @@ const EmployeeCompanys = () => {
 
     const { isLoading, error, sendRequest, clearError } = useHttpClient()
 
-    const [companys, setLoadedCompanys] = useState()
+    const [loadedCompanys, setLoadedCompanys] = useState()
 
 
     useEffect(() => {
@@ -21,7 +21,7 @@ const EmployeeCompanys = () => {
             try {
 
                 const responseData = await sendRequest(
-                    `http://localhost:5000/api/user/getEmployeeCompanys`,
+                    `http://localhost:5000/api/user/getUserCompanys`,
                     "GET",
                     null,
                     {
@@ -30,7 +30,7 @@ const EmployeeCompanys = () => {
                     }
                 )
 
-                setLoadedCompanys(responseData)
+                setLoadedCompanys(responseData.listOfCompanys)
 
                 // responseData1.foundCompanys.forEach( async (z) => {
                 //     try {
@@ -58,7 +58,7 @@ const EmployeeCompanys = () => {
     return (
         <React.Fragment>
             <ErrorModal error={error} onClear={clearError} />
-            {!isLoading && <EmployeeCompanysList />}
+            {!isLoading && loadedCompanys && <EmployeeCompanysList companys={loadedCompanys} />}
         </React.Fragment>
 
 
