@@ -473,6 +473,7 @@ const getUserCompany = async (req, res, next) => {
 
 }
 
+exports.getUserCompany = getUserCompany
 exports.getUserCompanys = getUserCompanys
 exports.setEquipmentBack = setEquipmentBack
 exports.addUserToEquipment = addUserToEquipment
