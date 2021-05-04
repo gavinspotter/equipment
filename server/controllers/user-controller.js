@@ -439,6 +439,17 @@ const setEquipmentBack = async (req, res, next) => {
 
 const getUserCompanys = async (req, res, next) => {
 
+    let findUser
+
+    try {
+        findUser = await Employee.findById(req.userData.userId)
+    } catch (err) {
+        const error = new HttpError("user isnt authenticated")
+        return next(error)
+    }
+
+
+
 }
 
 exports.getUserCompanys = getUserCompanys
