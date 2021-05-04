@@ -441,7 +441,7 @@ const getUserCompanys = async (req, res, next) => {
 
 }
 
-
+exports.getUserCompanys = getUserCompanys
 exports.setEquipmentBack = setEquipmentBack
 exports.addUserToEquipment = addUserToEquipment
 exports.takeEquipment = takeEquipment
