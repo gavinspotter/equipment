@@ -449,6 +449,7 @@ const getUserCompanys = async (req, res, next) => {
     }
 
 
+    res.json({ foundUser: findUser.companys })
 
 }
 
