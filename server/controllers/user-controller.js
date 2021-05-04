@@ -454,7 +454,7 @@ const getUserCompanys = async (req, res, next) => {
 
     try {
 
-        listOfCompanys = findUser.companys.every(Company.findById)
+        listOfCompanys = findUser.companys.forEach(z => Company.findById(z))
 
 
 
@@ -466,6 +466,10 @@ const getUserCompanys = async (req, res, next) => {
 
 
     res.json({ foundUser: findUser.companys, stuff: listOfCompanys })
+
+}
+
+const getUserCompany = async (req, res, next) => {
 
 }
 
