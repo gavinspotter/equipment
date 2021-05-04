@@ -450,22 +450,37 @@ const getUserCompanys = async (req, res, next) => {
 
     let listOfCompanys
 
-    let acompany
+    // let acompany
+
+    // try {
+
+    //     listOfCompanys = findUser.companys.map(async z => await Company.findById(z))
+
+
+
+    // } catch (err) {
+    //     const error = new HttpError("couldnt list the companys")
+    //     return next(error)
+
+    // }
 
     try {
-
-        listOfCompanys = findUser.companys.forEach(z => Company.findById(z))
-
-
-
+        listOfCompanys = await Company.find({ _id: findUser.companys })
     } catch (err) {
         const error = new HttpError("couldnt list the companys")
         return next(error)
+    }
+
+    let companyUsername
+
+    try {
+        companyUsername = await listOfCompanys.map(z => z.username)
+    } catch (err) {
 
     }
 
 
-    res.json({ foundUser: findUser.companys, stuff: listOfCompanys })
+    res.json({ listOfCompanys: companyUsername })
 
 }
 
