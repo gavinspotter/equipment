@@ -17,6 +17,8 @@ router.use(checkAuth);
 
 router.get("/getUserCompanys", usersController.getUserCompanys)
 
+router.get("/getUserCompany", usersController.getUserCompany)
+
 router.post("/setEquipmentBack", usersController.setEquipmentBack)
 
 router.post("/addUserToEquipment", usersController.addUserToEquipment)
