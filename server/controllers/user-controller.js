@@ -490,6 +490,7 @@ const getUserCompany = async (req, res, next) => {
         return next(error)
     }
 
+    res.json({ foundCompany: findCompany.username })
 
 
 
