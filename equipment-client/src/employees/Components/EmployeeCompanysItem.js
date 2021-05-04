@@ -7,10 +7,6 @@ import { useHttpClient } from "../../shared/hooks/http-hook"
 
 const EmployeeCompanysItem = () => {
 
-    const auth = useContext(AuthContext)
-
-    const { isLoading, error, sendRequest, clearError } = useHttpClient()
-
 
 
 
