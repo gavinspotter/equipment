@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 
 import { useHttpClient } from "../../shared/hooks/http-hook"
 import { AuthContext } from "../../shared/context/auth-context"
+import { parseZone } from 'moment'
 
 const EmployeeCompanyHeader = (props) => {
 
@@ -31,18 +32,27 @@ const EmployeeCompanyHeader = (props) => {
                 )
 
                 setLoadedCompany(responseData.getCompnany.username)
+                setLoadedEmployees(responseData.findEmployees)
+
             } catch (err) {
 
             }
-        }
 
-    }, [])
+        }
+        fetchCompany()
+
+    }, [sendRequest, auth.token, props.companyid])
 
 
     return (
         <div>
             <h2> {loadedCompany}</h2>
-            <div> {loadedEmployees}</div>
+            <div> {loadedEmployees.map(x =>
+                <div>
+                    {x.name} <br />
+                    {x.email}
+                </div>
+            )}</div>
         </div>
     )
 }

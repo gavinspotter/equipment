@@ -559,7 +559,16 @@ const getCompany = async (req, res, next) => {
         return next(error)
     }
 
-    res.json({ getCompany })
+
+    let findEmployees
+
+    try {
+        findEmployees = await Employee.find({ _id: getCompany.employees }, "name && email")
+    } catch (err) {
+        const error = new HttpError("couldnt find employees")
+    }
+
+    res.json({ getCompany, findEmployees })
 
 
 
