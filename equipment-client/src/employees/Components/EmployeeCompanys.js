@@ -5,6 +5,7 @@ import { AuthContext } from "../../shared/context/auth-context"
 import { useHttpClient } from "../../shared/hooks/http-hook"
 import EmployeeCompanysList from './EmployeeCompanysList'
 import "../../css/style.css"
+import { Link } from 'react-router-dom'
 
 const EmployeeCompanys = () => {
 
@@ -60,7 +61,9 @@ const EmployeeCompanys = () => {
             <ErrorModal error={error} onClear={clearError} />
             <div className="employeeHomeHeader">
                 <h1 > These are the companys you work for!</h1>
-                {!isLoading && loadedCompanys && <EmployeeCompanysList companys={loadedCompanys} />}
+                <Link to="">
+                    {!isLoading && loadedCompanys && <EmployeeCompanysList companys={loadedCompanys} />}
+                </Link>
             </div>
         </React.Fragment>
 

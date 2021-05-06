@@ -7,8 +7,10 @@ const EmployeeCompanysList = (props) => {
             {
                 props.companys.map((data) =>
                     <EmployeeCompanysItem
-                        key={data}
-                        company={data}
+                        key={data._id}
+                        company={data.username}
+                        _id={data._id}
+
                     />
                 )
             }
