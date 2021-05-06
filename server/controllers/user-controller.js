@@ -530,7 +530,7 @@ const listEquipment = async (req, res, next) => {
 
 }
 
-const getCompany = async () => {
+const getCompany = async (req, res, next) => {
 
     const companyId = req.params.companyId
 
@@ -549,6 +549,17 @@ const getCompany = async () => {
         const error = new HttpError("thats not one of your companys")
         return next(error)
     }
+
+    let getCompany
+
+    try {
+        getCompany = await Company.findById(findCompanyId, "-password")
+    } catch (err) {
+        const error = new HttpError("couldnt find company by id")
+        return next(error)
+    }
+
+    res.json({ getCompany })
 
 
 
