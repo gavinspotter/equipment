@@ -117,5 +117,28 @@
                 color:$color-white;
                 margin-top: 7.5rem;
             }}
+
+
+        &--company{
+            position: inherit;
+            
+                text-align: center;
+            margin-top: 3rem;
+            margin-left: 13.5rem;
+            height: 10rem;
+            width: 10rem;
+            border-radius: 20%;
+            background: $color-grey-dark;
+            
+            &-text{
+                display: inline-block;
+                margin-top: 2.75rem;
+                
+            }
+        }
+        
     }
+
+
 }
+

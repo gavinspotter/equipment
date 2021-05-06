@@ -168,6 +168,19 @@ body {
     color: #fff;
     margin-top: 7.5rem; }
 
+.card__employee--company {
+  position: inherit;
+  text-align: center;
+  margin-top: 3rem;
+  margin-left: 13.5rem;
+  height: 10rem;
+  width: 10rem;
+  border-radius: 20%;
+  background: #777; }
+  .card__employee--company-text {
+    display: inline-block;
+    margin-top: 2.75rem; }
+
 .home__header {
   position: absolute;
   top: 5rem;
@@ -178,6 +191,12 @@ body {
   position: absolute;
   top: 8rem;
   left: 50rem;
+  color: #fff; }
+
+.employeeHomeHeader {
+  margin-top: 10rem;
+  margin-left: 50rem;
+  position: absolute;
   color: #fff; }
 
 .home {

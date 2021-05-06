@@ -4,7 +4,7 @@ import ErrorModal from '../../shared/components/UIElements/ErrorModal'
 import { AuthContext } from "../../shared/context/auth-context"
 import { useHttpClient } from "../../shared/hooks/http-hook"
 import EmployeeCompanysList from './EmployeeCompanysList'
-
+import "../../css/style.css"
 
 const EmployeeCompanys = () => {
 
@@ -58,7 +58,10 @@ const EmployeeCompanys = () => {
     return (
         <React.Fragment>
             <ErrorModal error={error} onClear={clearError} />
-            {!isLoading && loadedCompanys && <EmployeeCompanysList companys={loadedCompanys} />}
+            <div className="employeeHomeHeader">
+                <h1 > These are the companys you work for!</h1>
+                {!isLoading && loadedCompanys && <EmployeeCompanysList companys={loadedCompanys} />}
+            </div>
         </React.Fragment>
 
 
