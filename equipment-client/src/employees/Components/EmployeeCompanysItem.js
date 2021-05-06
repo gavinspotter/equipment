@@ -15,7 +15,7 @@ const EmployeeCompanysItem = (props) => {
         <div
             className="card__employee--company"
         >
-            <Link to={`/`}>
+            <Link to={`/employee/${props._id}`}>
                 <div className="card__employee--company-text">
                     {props.company}
                 </div>
