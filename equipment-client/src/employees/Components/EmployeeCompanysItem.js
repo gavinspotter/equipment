@@ -12,12 +12,15 @@ const EmployeeCompanysItem = (props) => {
 
 
     return (
-        <div
-            className="card__employee--company"
-        >
+        <div>
             <Link to={`/employee/${props._id}`}>
-                <div className="card__employee--company-text">
-                    {props.company}
+                <div
+                    className="card__employee--company"
+                >
+                    <div className="card__employee--company-text">
+                        {props.company}
+                    </div>
+
                 </div>
             </Link>
         </div>

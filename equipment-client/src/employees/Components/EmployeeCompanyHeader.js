@@ -16,7 +16,7 @@ const EmployeeCompanyHeader = (props) => {
     const [loadedEmployees, setLoadedEmployees] = useState();
 
 
-
+    let stuff
 
     useEffect(() => {
         const fetchCompany = async () => {
@@ -32,27 +32,27 @@ const EmployeeCompanyHeader = (props) => {
                 )
 
                 setLoadedCompany(responseData.getCompnany.username)
-                setLoadedEmployees(responseData.findEmployees)
+
 
             } catch (err) {
 
             }
 
+
         }
+
+
         fetchCompany()
+
 
     }, [sendRequest, auth.token, props.companyid])
 
 
+
     return (
         <div>
-            <h2> {loadedCompany}</h2>
-            <div> {loadedEmployees.map(x =>
-                <div>
-                    {x.name} <br />
-                    {x.email}
-                </div>
-            )}</div>
+            <h2> </h2>
+            <div> </div>
         </div>
     )
 }

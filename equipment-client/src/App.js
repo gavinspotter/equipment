@@ -36,11 +36,11 @@ const App = () => {
   } else if (companyToken) {
     routes = (
       <Switch>
-        <Route path="/company/home">
+        <Route path="/company/home" exact>
           <CompanyHome />
         </Route>
 
-        <Redirect to="/company/home" />
+        <Redirect to="/company/home" exact />
       </Switch>
     )
 
