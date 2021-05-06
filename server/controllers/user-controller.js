@@ -471,14 +471,14 @@ const getUserCompanys = async (req, res, next) => {
         return next(error)
     }
 
-    let companyUsername
+    // let companyUsername
 
-    try {
-        companyUsername = await listOfCompanys.map(z => z.username)
-    } catch (err) {
-        const error = new HttpError("cant list companys")
-        return next(error)
-    }
+    // try {
+    //     companyUsername = await listOfCompanys.map(z => z.username)
+    // } catch (err) {
+    //     const error = new HttpError("cant list companys")
+    //     return next(error)
+    // }
 
 
     res.json({ listOfCompanys })
@@ -530,6 +530,11 @@ const listEquipment = async (req, res, next) => {
 
 }
 
+const getCompany = async () => {
+
+}
+
+exports.getCompany = getCompany
 exports.listEquipment = listEquipment
 exports.getUserCompanys = getUserCompanys
 exports.setEquipmentBack = setEquipmentBack
