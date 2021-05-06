@@ -16,6 +16,7 @@ router.post("/login", usersController.login)
 router.use(checkAuth);
 
 
+router.get("/getUserCompany/:companyId")
 
 router.get("/getUserCompanys", usersController.getUserCompanys)
 

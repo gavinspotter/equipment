@@ -532,6 +532,10 @@ const listEquipment = async (req, res, next) => {
 
 const getCompany = async () => {
 
+    const companyId = req.params.companyId
+
+
+
 }
 
 exports.getCompany = getCompany
