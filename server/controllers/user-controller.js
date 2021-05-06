@@ -499,6 +499,32 @@ const listEquipment = async (req, res, next) => {
         return next(error)
     }
 
+    const findCompanyId = findUser.companys.find(x => x == companyId)
+
+    if (!findCompanyId) {
+        const error = new HttpError("thats not one of your companys")
+        return next(error)
+    }
+
+    let getCompany
+
+    try {
+        getCompany = await Company.findById(findCompanyId)
+    } catch (err) {
+        const error = new HttpError("couldnt find company by id")
+        return next(error)
+    }
+
+    let getEquipment
+
+    try {
+
+    } catch (err) {
+
+    }
+
+
+
 
 }
 
