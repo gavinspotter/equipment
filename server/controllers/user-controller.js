@@ -543,6 +543,16 @@ const getCompany = async () => {
         return next(error)
     }
 
+    const findCompanyId = findUser.companys.find(x => x == companyId)
+
+    if (!findCompanyId) {
+        const error = new HttpError("thats not one of your companys")
+        return next(error)
+    }
+
+
+
+
 }
 
 exports.getCompany = getCompany
