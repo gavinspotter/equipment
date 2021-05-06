@@ -534,7 +534,14 @@ const getCompany = async () => {
 
     const companyId = req.params.companyId
 
+    let findUser
 
+    try {
+        findUser = await Employee.findById(req.userData.userId)
+    } catch (err) {
+        const error = new HttpError("couldnt find authenticated user")
+        return next(error)
+    }
 
 }
 
