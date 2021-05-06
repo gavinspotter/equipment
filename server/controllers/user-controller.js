@@ -488,6 +488,9 @@ const getUserCompanys = async (req, res, next) => {
 
 const listEquipment = async (req, res, next) => {
 
+    const companyId = req.params.companyId
+
+
 
 
 }
