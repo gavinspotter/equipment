@@ -518,11 +518,13 @@ const listEquipment = async (req, res, next) => {
     let getEquipment
 
     try {
-
+        getEquipment = await Equipment.find({ _id: getCompany.equipment })
     } catch (err) {
-
+        const error = new HttpError("couldnt find equipment")
+        return next(error)
     }
 
+    res.json({ getEquipment })
 
 
 
