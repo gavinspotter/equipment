@@ -15,8 +15,8 @@ const EmployeeCompany = () => {
 
     return (
         <div>
-            <EmployeeCompanyHeader />
-            <EmployeeCompanyEquipment />
+            <EmployeeCompanyHeader companyid={companyId} />
+            <EmployeeCompanyEquipment companyid={companyId} />
             <EmployeeCompanyOutEquipment />
         </div>
     )

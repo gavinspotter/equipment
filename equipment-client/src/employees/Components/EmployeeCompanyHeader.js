@@ -1,6 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
-const EmployeeCompanyHeader = () => {
+import { useHttpClient } from "../../shared/hooks/http-hook"
+import { AuthContext } from "../../shared/context/auth-context"
+
+const EmployeeCompanyHeader = (props) => {
+
+
+    const auth = useContext(AuthContext)
+
+    const { isLoading, error, sendRequest, clearError } = useHttpClient()
+
+
+
     return (
         <div>
 
