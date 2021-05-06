@@ -465,7 +465,7 @@ const getUserCompanys = async (req, res, next) => {
     // }
 
     try {
-        listOfCompanys = await Company.find({ _id: findUser.companys })
+        listOfCompanys = await Company.find({ _id: findUser.companys }, "username && _id")
     } catch (err) {
         const error = new HttpError("couldnt find companys by id")
         return next(error)
@@ -481,7 +481,7 @@ const getUserCompanys = async (req, res, next) => {
     }
 
 
-    res.json({ listOfCompanys: companyUsername })
+    res.json({ listOfCompanys })
 
 }
 
