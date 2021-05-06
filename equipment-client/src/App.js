@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-d
 import CompanyLogin from './companys/CompanyLogin';
 import CompanySignup from './companys/CompanySignup';
 import CompanyHome from './companys/pages/CompanyHome';
+import EmployeeCompany from './employees/pages/EmployeeCompany';
 import EmployeeHome from './employees/pages/EmployeeHome';
 
 import { AuthContext } from "./shared/context/auth-context"
@@ -24,6 +25,9 @@ const App = () => {
         <Route path="/employee/home">
           <EmployeeHome />
         </Route>
+        <Route path="/employee/:companyId">
+          <EmployeeCompany />
+        </Route>
         <Redirect to="/employee/home" />
       </Switch>
     )
@@ -35,6 +39,7 @@ const App = () => {
         <Route path="/company/home">
           <CompanyHome />
         </Route>
+
         <Redirect to="/company/home" />
       </Switch>
     )
