@@ -485,38 +485,14 @@ const getUserCompanys = async (req, res, next) => {
 
 }
 
-const getUserCompany = async (req, res, next) => {
 
-
-    const companyId = req.params.companyId
-
-    let findCompany
-
-    try {
-        await Employee.findById(req.userData.userId)
-    } catch (err) {
-        const error = new HttpError("user isnt authenticated")
-        return next(error)
-    }
-
-    try {
-        findCompany = await Company.findById(companyId)
-    } catch (err) {
-        const error = new HttpError("couldnt find company by id")
-        return next(error)
-    }
-
-    res.json({ foundCompany: findCompany.username })
-
-
-
-
+const listEquipment = async (req, res, next) => {
 
 
 
 }
 
-exports.getUserCompany = getUserCompany
+exports.listEquipment = listEquipment
 exports.getUserCompanys = getUserCompanys
 exports.setEquipmentBack = setEquipmentBack
 exports.addUserToEquipment = addUserToEquipment
