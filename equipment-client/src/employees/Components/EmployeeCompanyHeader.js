@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 
 import { useHttpClient } from "../../shared/hooks/http-hook"
 import { AuthContext } from "../../shared/context/auth-context"
-import { parseZone } from 'moment'
+
 import EmployeeCompanyHeaderList from './EmployeeCompanyHeaderList'
 
 const EmployeeCompanyHeader = (props) => {
@@ -17,7 +17,7 @@ const EmployeeCompanyHeader = (props) => {
     const [loadedEmployees, setLoadedEmployees] = useState();
 
 
-    let stuff
+
 
     useEffect(() => {
         const fetchCompany = async () => {
@@ -32,7 +32,7 @@ const EmployeeCompanyHeader = (props) => {
                     }
                 )
 
-                setLoadedCompany(responseData.getCompnany.username)
+                setLoadedCompany(responseData.getCompany.username)
                 setLoadedEmployees(responseData.findEmployees)
 
 
@@ -53,8 +53,8 @@ const EmployeeCompanyHeader = (props) => {
 
     return (
         <div>
-            <h2> {loadedCompany}</h2>
-            <EmployeeCompanyHeaderList employees={loadedEmployees} />
+            {!isLoading && loadedCompany && <h2> {loadedCompany}</h2>}
+            {!isLoading && loadedEmployees && <EmployeeCompanyHeaderList employees={loadedEmployees} />}
         </div>
     )
 }

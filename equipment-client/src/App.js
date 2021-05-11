@@ -22,10 +22,10 @@ const App = () => {
   if (token) {
     routes = (
       <Switch>
-        <Route path="/employee/home">
+        <Route path="/employee/home" exact>
           <EmployeeHome />
         </Route>
-        <Route path="/employee/:companyId">
+        <Route path="/employee/:companyId" exact>
           <EmployeeCompany />
         </Route>
         <Redirect to="/employee/home" />
