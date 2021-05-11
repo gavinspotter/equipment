@@ -575,6 +575,11 @@ const getCompany = async (req, res, next) => {
 
 }
 
+const getCompanysInEquipment = (req, res, next) => {
+
+}
+
+exports.getCompanysInEquipment = getCompanysInEquipment
 exports.getCompany = getCompany
 exports.listEquipment = listEquipment
 exports.getUserCompanys = getUserCompanys
