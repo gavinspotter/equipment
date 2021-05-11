@@ -53,7 +53,7 @@ const EmployeeCompanyHeader = (props) => {
 
 
     return (
-        <div>
+        <div className="card__employee--cande">
             {!isLoading && loadedCompany && <h2> {loadedCompany}</h2>}
             {!isLoading && loadedEmployees && <EmployeeCompanyHeaderList employees={loadedEmployees} />}
         </div>

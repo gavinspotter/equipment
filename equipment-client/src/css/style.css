@@ -181,6 +181,22 @@ body {
     display: inline-block;
     margin-top: 2.75rem; }
 
+.card__employee--cande {
+  position: absolute;
+  display: inline-block;
+  top: 10rem;
+  left: 20rem;
+  border: #c2c0c0;
+  height: auto;
+  width: 20rem;
+  border-style: solid;
+  border-width: .0001rem; }
+
+.card__employee--e {
+  border: #c2c0c0;
+  border-top-style: solid;
+  border-width: .0001rem; }
+
 .home__header {
   position: absolute;
   top: 5rem;

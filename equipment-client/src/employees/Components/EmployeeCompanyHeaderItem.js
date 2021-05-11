@@ -1,10 +1,10 @@
 import React from 'react'
 
-
+import "../../css/style.css"
 
 const EmployeeCompanyHeaderItem = (props) => {
     return (
-        <div>
+        <div className="card__employee--e">
             <div>
                 {props.name}
             </div>
