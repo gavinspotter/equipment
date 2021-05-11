@@ -32,6 +32,7 @@ const EmployeeCompanyHeader = (props) => {
                 )
 
                 setLoadedCompany(responseData.getCompnany.username)
+                setLoadedEmployees(responseData.findEmployees)
 
 
             } catch (err) {
@@ -51,7 +52,7 @@ const EmployeeCompanyHeader = (props) => {
 
     return (
         <div>
-            <h2> </h2>
+            <h2> {loadedCompany}</h2>
             <div> </div>
         </div>
     )
