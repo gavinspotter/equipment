@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useHttpClient } from "../../shared/hooks/http-hook"
 import { AuthContext } from "../../shared/context/auth-context"
 import { parseZone } from 'moment'
+import EmployeeCompanyHeaderList from './EmployeeCompanyHeaderList'
 
 const EmployeeCompanyHeader = (props) => {
 
@@ -53,7 +54,7 @@ const EmployeeCompanyHeader = (props) => {
     return (
         <div>
             <h2> {loadedCompany}</h2>
-            <div> </div>
+            <EmployeeCompanyHeaderList employees={loadedEmployees} />
         </div>
     )
 }
