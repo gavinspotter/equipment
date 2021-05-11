@@ -4,6 +4,7 @@ import { useHttpClient } from "../../shared/hooks/http-hook"
 import { AuthContext } from "../../shared/context/auth-context"
 
 import EmployeeCompanyHeaderList from './EmployeeCompanyHeaderList'
+import "../../css/style.css"
 
 const EmployeeCompanyHeader = (props) => {
 
