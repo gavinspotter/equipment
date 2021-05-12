@@ -577,6 +577,8 @@ const getCompany = async (req, res, next) => {
 
 const getCompanysInEquipment = (req, res, next) => {
 
+    const companyId = req.params.companyid
+
 }
 
 exports.getCompanysInEquipment = getCompanysInEquipment
