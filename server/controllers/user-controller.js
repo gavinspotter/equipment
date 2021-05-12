@@ -221,10 +221,18 @@ const takeEquipment = async (req, res, next) => {
         jobDescription: jobdescription
     }
 
-    if (!findEquipment.eHistory[findEquipment.eHistory.length - 1].out) {
-        const error = new HttpError("another user has that equipment")
-        return next(error)
+
+    if (findEquipment.eHistory.length > 0) {
+        const equipmentIsOut = findEquipment.eHistory[findEquipment.eHistory.length - 1].dateOfUse.out
+        if (!findEquipment.eHistory.length === 0 || !equipmentIsOut) {
+            const error = new HttpError("another user has that equipment")
+            return next(error)
+        }
+
     }
+
+
+
 
     try {
         findEquipment.eHistory.push(ehistory)
@@ -524,7 +532,16 @@ const listEquipment = async (req, res, next) => {
         return next(error)
     }
 
-    res.json({ getEquipment })
+    const outAce = getEquipment.forEach(z => z.eHistory.forEach(x => x.dateOfUse.out))
+
+    if (outAce) {
+        res.json({ getEquipment })
+    } else {
+        const error = new HttpError("that equipment is out")
+        return next(error)
+    }
+
+
 
 
 
