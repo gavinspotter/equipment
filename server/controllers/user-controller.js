@@ -545,11 +545,21 @@ const listEquipment = async (req, res, next) => {
     //console.log(getEquipment)
 
 
-    const getRestingEquip = getEquipment.filter(x => x.eHistory[x.eHistory.length - 1].dateOfUse.out)
+
+
+    const getRestingEquipWithTimesOut = getEquipment.filter(x => x.eHistory.length > 0 ?
+        x.eHistory[x.eHistory.length - 1].dateOfUse.out : null
+    )
+
+    const getRestingEquipmentWithNoTimesOut = getEquipment.filter(x => x.eHistory.length === 0)
+
+
+
+
 
     //console.log(getRestingEquip)
 
-    res.json({ getRestingEquip })
+    res.json({ getRestingEquipWithTimesOut, getRestingEquipmentWithNoTimesOut })
 
 }
 
