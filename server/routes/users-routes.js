@@ -28,7 +28,7 @@ router.post("/addUserToEquipment", usersController.addUserToEquipment)
 
 router.post("/takeEquipment", usersController.takeEquipment)
 
-router.get("/getCompanyEquipment/:companyid", usersController.getCompanysInEquipment)
+router.get("/getCompanyOutEquipment/:companyid", usersController.getCompanysInEquipment)
 
 module.exports = router
 

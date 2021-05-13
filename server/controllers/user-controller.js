@@ -614,6 +614,18 @@ const getCompanysInEquipment = async (req, res, next) => {
         return next(error)
     }
 
+    let outEquipment
+
+    try {
+        outEquipment = await Equipment.find({ _id: findCompany.equipment })
+    } catch (err) {
+        const error = new HttpError("couldnt find equipment with company id")
+        return next(error)
+    }
+
+    res.json({ outEquipment })
+
+
 }
 
 exports.getCompanysInEquipment = getCompanysInEquipment
