@@ -592,9 +592,18 @@ const getCompany = async (req, res, next) => {
 
 }
 
-const getCompanysInEquipment = (req, res, next) => {
+const getCompanysInEquipment = async (req, res, next) => {
 
     const companyId = req.params.companyid
+
+    let findUser
+
+    try {
+        findUser = await Employee.findById(req.userData.userId)
+    } catch (err) {
+        const error = new HttpError("user isnt authenticated")
+        return next(error)
+    }
 
 }
 
