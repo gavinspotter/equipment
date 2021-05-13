@@ -605,6 +605,15 @@ const getCompanysInEquipment = async (req, res, next) => {
         return next(error)
     }
 
+    let findCompany
+
+    try {
+        findCompany = await Company.findById(companyId)
+    } catch (err) {
+        const error = new HttpError("couldnt find company by id")
+        return next(error)
+    }
+
 }
 
 exports.getCompanysInEquipment = getCompanysInEquipment
