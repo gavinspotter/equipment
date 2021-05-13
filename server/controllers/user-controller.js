@@ -532,18 +532,24 @@ const listEquipment = async (req, res, next) => {
         return next(error)
     }
 
-    const outAce = getEquipment.forEach(z => z.eHistory.forEach(x => x.dateOfUse.out))
+    // const outAce = getEquipment.forEach(z => z.eHistory.forEach(x => x.dateOfUse.out))
 
-    if (outAce) {
-        res.json({ getEquipment })
-    } else {
-        const error = new HttpError("that equipment is out")
-        return next(error)
-    }
-
-
+    // if (outAce) {
+    //     res.json({ getEquipment })
+    // } else {
+    //     const error = new HttpError("that equipment is out")
+    //     return next(error)
+    // }
 
 
+    //console.log(getEquipment)
+
+
+    const getRestingEquip = getEquipment.filter(x => x.eHistory[x.eHistory.length - 1].dateOfUse.out)
+
+    //console.log(getRestingEquip)
+
+    res.json({ getRestingEquip })
 
 }
 
@@ -622,6 +628,8 @@ const getCompanysInEquipment = async (req, res, next) => {
         const error = new HttpError("couldnt find equipment with company id")
         return next(error)
     }
+
+    outEquipment.forEach(z => z.eHistory.forEach)
 
     res.json({ outEquipment })
 
