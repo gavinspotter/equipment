@@ -585,6 +585,7 @@ const getCompany = async (req, res, next) => {
 
     let getCompany
 
+
     try {
         getCompany = await Company.findById(findCompanyId, "-password")
     } catch (err) {
